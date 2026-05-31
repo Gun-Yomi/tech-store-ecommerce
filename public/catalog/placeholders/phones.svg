@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Phone product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for phones.</desc>
+  <rect width="1200" height="900" fill="#f3f7e8"/>
+  <circle cx="960" cy="160" r="220" fill="#c9df93"/>
+  <circle cx="220" cy="760" r="260" fill="#dfecc3"/>
+  <rect x="418" y="105" width="364" height="690" rx="54" fill="#253326"/>
+  <rect x="452" y="155" width="296" height="590" rx="32" fill="#6e8f3d"/>
+  <circle cx="600" cy="706" r="18" fill="#d8e978"/>
+  <circle cx="602" cy="206" r="16" fill="#d8e978"/>
+</svg>

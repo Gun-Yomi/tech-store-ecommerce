@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Repair part product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for repair parts.</desc>
+  <rect width="1200" height="900" fill="#f4f7ed"/>
+  <circle cx="1005" cy="725" r="260" fill="#dfecc3"/>
+  <circle cx="220" cy="170" r="230" fill="#c9df93"/>
+  <rect x="280" y="250" width="640" height="405" rx="46" fill="#253326"/>
+  <path d="M440 545l244-244 76 76-244 244H440v-76z" fill="#6e8f3d"/>
+  <circle cx="778" cy="283" r="72" fill="#d8e978"/>
+  <rect x="365" y="325" width="120" height="36" rx="18" fill="#d8e978"/>
+  <rect x="365" y="400" width="170" height="36" rx="18" fill="#d8e978"/>
+</svg>

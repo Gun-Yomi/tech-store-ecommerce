@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Desktop product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for desktop systems.</desc>
+  <rect width="1200" height="900" fill="#f4f7ed"/>
+  <circle cx="170" cy="735" r="250" fill="#dfecc3"/>
+  <circle cx="1040" cy="170" r="230" fill="#c9df93"/>
+  <rect x="160" y="205" width="570" height="360" rx="28" fill="#253326"/>
+  <rect x="205" y="250" width="480" height="270" rx="16" fill="#6e8f3d"/>
+  <rect x="805" y="155" width="220" height="590" rx="34" fill="#344554"/>
+  <circle cx="915" cy="230" r="38" fill="#d8e978"/>
+  <rect x="872" y="325" width="86" height="270" rx="43" fill="#6e8f3d"/>
+  <rect x="350" y="602" width="190" height="32" rx="16" fill="#253326"/>
+</svg>

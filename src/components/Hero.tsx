@@ -1,4 +1,5 @@
 import { ArrowRight, BadgeCheck, ShieldCheck, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const heroImage =
   "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1900&q=85";
@@ -27,19 +28,19 @@ export function Hero() {
             accessories selected for speed, reliability, and long-term value.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#featured-products"
+            <Link
+              href="/products?sort=featured"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#d8e978] px-6 text-sm font-black text-[#253326] shadow-[0_18px_45px_rgba(216,233,120,0.22)] transition hover:-translate-y-0.5 hover:bg-[#e7f39b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f4ffd1]"
             >
               Shop featured
               <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#categories"
+            </Link>
+            <Link
+              href="/categories"
               className="inline-flex h-12 items-center justify-center rounded-lg border border-white/25 bg-white/12 px-6 text-sm font-black text-white transition hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/18 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f4ffd1]"
             >
               Browse categories
-            </a>
+            </Link>
           </div>
           <div className="mt-10 grid gap-3 text-sm font-semibold text-[#f7f9ef] sm:grid-cols-3">
             <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/10 px-4 py-3 backdrop-blur">

@@ -1,14 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
-import type { Category, Product } from "@/types/product";
+import Link from "next/link";
+import type { CatalogCategory } from "@/lib/catalog";
+import { CategoryCard } from "./catalog/CategoryCard";
 
 type CategoryPreviewProps = {
-  categories: Category[];
-  products: Product[];
+  categories: CatalogCategory[];
 };
 
-export function CategoryPreview({ categories, products }: CategoryPreviewProps) {
-  const highlightedCategories = categories.slice(0, 6);
-
+export function CategoryPreview({ categories }: CategoryPreviewProps) {
   return (
     <section id="categories" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -28,43 +26,18 @@ export function CategoryPreview({ categories, products }: CategoryPreviewProps) 
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {highlightedCategories.map((category) => {
-            const count = products.filter(
-              (product) => product.category === category.name,
-            ).length;
+          {categories.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
+          ))}
+        </div>
 
-            return (
-              <a
-                key={category.slug}
-                href="#featured-products"
-                className="group relative min-h-60 overflow-hidden rounded-lg bg-[#253326] p-6 text-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#435d2d]/18 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8ea95c]"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(37,51,38,0.18) 0%, rgba(37,51,38,0.88) 100%), url(${category.image})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              >
-                <div className="relative flex h-full min-h-48 flex-col justify-between">
-                  <span className="w-fit rounded-full border border-white/18 bg-white/16 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-[#f4ffd1] backdrop-blur">
-                    {count || "Soon"} products
-                  </span>
-                  <div>
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                      <h3 className="text-2xl font-black tracking-normal">
-                        {category.name}
-                      </h3>
-                      <span className="grid h-10 w-10 place-items-center rounded-lg bg-white text-[#344554] transition group-hover:-translate-y-1 group-hover:translate-x-1">
-                        <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                    <p className="max-w-sm text-sm leading-6 text-[#edf4de]">
-                      {category.description}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            );
-          })}
+        <div className="mt-8 text-center">
+          <Link
+            href="/categories"
+            className="inline-flex h-12 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-6 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+          >
+            View all categories
+          </Link>
         </div>
       </div>
     </section>

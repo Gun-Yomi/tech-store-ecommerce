@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Smart gadget product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for smart gadgets.</desc>
+  <rect width="1200" height="900" fill="#f3f7e8"/>
+  <circle cx="1010" cy="710" r="250" fill="#dfecc3"/>
+  <circle cx="230" cy="160" r="230" fill="#c9df93"/>
+  <rect x="422" y="170" width="356" height="560" rx="92" fill="#253326"/>
+  <rect x="488" y="236" width="224" height="428" rx="74" fill="#6e8f3d"/>
+  <circle cx="600" cy="450" r="92" fill="#d8e978"/>
+  <path d="M575 450h50M600 425v50" stroke="#253326" stroke-width="26" stroke-linecap="round"/>
+</svg>

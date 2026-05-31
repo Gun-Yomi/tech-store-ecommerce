@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Component product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for components.</desc>
+  <rect width="1200" height="900" fill="#f3f7e8"/>
+  <circle cx="240" cy="720" r="250" fill="#dfecc3"/>
+  <circle cx="975" cy="180" r="230" fill="#c9df93"/>
+  <rect x="338" y="220" width="524" height="460" rx="38" fill="#253326"/>
+  <rect x="430" y="310" width="340" height="280" rx="28" fill="#6e8f3d"/>
+  <rect x="508" y="388" width="184" height="124" rx="18" fill="#d8e978"/>
+  <g stroke="#344554" stroke-width="18" stroke-linecap="round">
+    <path d="M338 308H248M338 410H248M338 512H248M338 614H248"/>
+    <path d="M862 308h90M862 410h90M862 512h90M862 614h90"/>
+  </g>
+</svg>

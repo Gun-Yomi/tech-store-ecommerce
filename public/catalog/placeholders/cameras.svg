@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Camera product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for cameras.</desc>
+  <rect width="1200" height="900" fill="#f3f7e8"/>
+  <circle cx="940" cy="180" r="240" fill="#dfecc3"/>
+  <circle cx="230" cy="720" r="240" fill="#c9df93"/>
+  <rect x="220" y="285" width="760" height="370" rx="52" fill="#253326"/>
+  <rect x="310" y="225" width="210" height="96" rx="28" fill="#253326"/>
+  <circle cx="610" cy="470" r="142" fill="#6e8f3d"/>
+  <circle cx="610" cy="470" r="86" fill="#344554"/>
+  <circle cx="610" cy="470" r="36" fill="#d8e978"/>
+  <rect x="790" y="350" width="95" height="46" rx="23" fill="#d8e978"/>
+</svg>

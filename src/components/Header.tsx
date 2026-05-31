@@ -4,10 +4,10 @@ import { LogoutButton } from "@/components/auth/LogoutButton";
 import { getCurrentUser } from "@/lib/auth/session";
 
 const navItems = [
-  { label: "Phones", href: "/#categories" },
-  { label: "Laptops", href: "/#categories" },
-  { label: "Cameras", href: "/#categories" },
-  { label: "Deals", href: "/#featured-products" },
+  { label: "Products", href: "/products" },
+  { label: "Categories", href: "/categories" },
+  { label: "Brands", href: "/brands" },
+  { label: "Deals", href: "/products?sort=featured" },
 ];
 
 export async function Header() {
@@ -42,11 +42,16 @@ export async function Header() {
           ))}
         </nav>
 
-        <form className="ml-auto hidden flex-1 justify-center md:flex" role="search">
+        <form
+          action="/products"
+          className="ml-auto hidden flex-1 justify-center md:flex"
+          role="search"
+        >
           <label className="relative w-full max-w-xl">
             <span className="sr-only">Search products</span>
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#344554]" />
             <input
+              name="search"
               type="search"
               placeholder="Search phones, laptops, cameras, parts..."
               className="h-11 w-full rounded-lg border border-[#d7dfbd] bg-white/75 pl-11 pr-4 text-sm text-[#253326] outline-none transition placeholder:text-[#75806f] hover:bg-white focus:border-[#7f9a4b] focus:bg-white"

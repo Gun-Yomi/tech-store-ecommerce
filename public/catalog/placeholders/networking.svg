@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Networking product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for networking gear.</desc>
+  <rect width="1200" height="900" fill="#f4f7ed"/>
+  <circle cx="950" cy="160" r="240" fill="#c9df93"/>
+  <circle cx="245" cy="720" r="250" fill="#dfecc3"/>
+  <rect x="280" y="500" width="640" height="150" rx="48" fill="#253326"/>
+  <circle cx="410" cy="575" r="24" fill="#d8e978"/>
+  <circle cx="490" cy="575" r="24" fill="#6e8f3d"/>
+  <circle cx="570" cy="575" r="24" fill="#6e8f3d"/>
+  <path d="M430 405c94-88 246-88 340 0" fill="none" stroke="#253326" stroke-width="34" stroke-linecap="round"/>
+  <path d="M500 330c58-52 142-52 200 0" fill="none" stroke="#6e8f3d" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="600" cy="450" r="28" fill="#d8e978"/>
+</svg>

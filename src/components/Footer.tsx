@@ -1,15 +1,35 @@
+import Link from "next/link";
+
 const footerSections = [
   {
     title: "Shop",
-    links: ["Phones", "Laptops", "Desktops", "Cameras", "Accessories"],
+    links: [
+      { label: "Products", href: "/products" },
+      { label: "Categories", href: "/categories" },
+      { label: "Brands", href: "/brands" },
+      { label: "Phones", href: "/categories/phones" },
+      { label: "Laptops", href: "/categories/laptops" },
+    ],
   },
   {
     title: "Support",
-    links: ["Warranty", "Shipping", "Returns", "Repairs", "Contact"],
+    links: [
+      { label: "Warranty", href: "#" },
+      { label: "Shipping", href: "#" },
+      { label: "Returns", href: "#" },
+      { label: "Repairs", href: "/categories/repairs-parts" },
+      { label: "Contact", href: "#" },
+    ],
   },
   {
     title: "Company",
-    links: ["About", "Careers", "Privacy", "Terms", "Accessibility"],
+    links: [
+      { label: "About", href: "#" },
+      { label: "Careers", href: "#" },
+      { label: "Privacy", href: "#" },
+      { label: "Terms", href: "#" },
+      { label: "Accessibility", href: "#" },
+    ],
   },
 ];
 
@@ -18,7 +38,7 @@ export function Footer() {
     <footer className="bg-[#253326] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_2fr] lg:px-8">
         <div>
-          <a href="#" className="inline-flex items-center gap-3" aria-label="CircuitHaus home">
+          <Link href="/" className="inline-flex items-center gap-3" aria-label="CircuitHaus home">
             <span className="grid h-11 w-11 place-items-center rounded-lg border border-[#d8e978]/35 bg-white/10 text-sm font-black text-[#d8e978]">
               CH
             </span>
@@ -30,7 +50,7 @@ export function Footer() {
                 Premium Tech Market
               </span>
             </span>
-          </a>
+          </Link>
           <p className="mt-5 max-w-md text-sm leading-6 text-[#dfe8d0]">
             A focused commerce foundation for premium devices, upgrade parts,
             creator gear, and support-ready technology products.
@@ -45,13 +65,13 @@ export function Footer() {
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-[#dfe8d0]">
                 {section.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8e978]"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

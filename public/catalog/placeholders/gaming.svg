@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Gaming product placeholder</title>
+  <desc id="desc">Premium green technology placeholder for gaming products.</desc>
+  <rect width="1200" height="900" fill="#f3f7e8"/>
+  <circle cx="1000" cy="210" r="240" fill="#c9df93"/>
+  <circle cx="170" cy="690" r="250" fill="#dfecc3"/>
+  <path d="M330 350c55-70 143-82 220-38h100c77-44 165-32 220 38 53 68 82 208 47 273-26 49-82 55-134 17l-88-64H505l-88 64c-52 38-108 32-134-17-35-65-6-205 47-273z" fill="#253326"/>
+  <circle cx="785" cy="438" r="44" fill="#6e8f3d"/>
+  <circle cx="870" cy="502" r="34" fill="#d8e978"/>
+  <rect x="365" y="465" width="150" height="36" rx="18" fill="#d8e978"/>
+  <rect x="422" y="408" width="36" height="150" rx="18" fill="#d8e978"/>
+</svg>
