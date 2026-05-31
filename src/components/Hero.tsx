@@ -4,7 +4,21 @@ import Link from "next/link";
 const heroImage =
   "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1900&q=85";
 
-export function Hero() {
+type HeroProps = {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  announcementText?: string;
+};
+
+export function Hero({
+  title = "CircuitHaus",
+  subtitle = "Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.",
+  ctaText = "Shop featured",
+  ctaLink = "/products?sort=featured",
+  announcementText = "Premium launch deals are live",
+}: HeroProps) {
   return (
     <section
       className="relative isolate overflow-hidden bg-[#253326] text-white"
@@ -18,21 +32,20 @@ export function Hero() {
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/16 px-4 py-2 text-sm font-bold text-[#f8ffe8] shadow-[0_12px_36px_rgba(67,93,45,0.22)]">
             <Sparkles className="h-4 w-4" />
-            Premium launch deals are live
+            {announcementText}
           </div>
           <h1 className="text-4xl font-black tracking-normal text-white min-[360px]:text-5xl sm:text-6xl lg:text-7xl">
-            CircuitHaus
+            {title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#edf4de] sm:text-xl">
-            Premium phones, creator laptops, gaming systems, cameras, and workstation
-            accessories selected for speed, reliability, and long-term value.
+            {subtitle}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/products?sort=featured"
+              href={ctaLink}
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#d8e978] px-6 text-sm font-black text-[#253326] shadow-[0_18px_45px_rgba(216,233,120,0.22)] transition hover:-translate-y-0.5 hover:bg-[#e7f39b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f4ffd1]"
             >
-              Shop featured
+              {ctaText}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link

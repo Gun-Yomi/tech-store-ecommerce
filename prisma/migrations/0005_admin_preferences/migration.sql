@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS "SitePreference" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "siteName" TEXT NOT NULL DEFAULT 'CircuitHaus',
+    "storeTagline" TEXT NOT NULL DEFAULT 'Premium technology market',
+    "logoUrl" TEXT NOT NULL DEFAULT '',
+    "announcementText" TEXT NOT NULL DEFAULT 'Premium launch deals are live',
+    "announcementEnabled" BOOLEAN NOT NULL DEFAULT true,
+    "heroTitle" TEXT NOT NULL DEFAULT 'CircuitHaus',
+    "heroSubtitle" TEXT NOT NULL DEFAULT 'Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.',
+    "heroCtaText" TEXT NOT NULL DEFAULT 'Shop featured',
+    "heroCtaLink" TEXT NOT NULL DEFAULT '/products?sort=featured',
+    "homepageBannerText" TEXT NOT NULL DEFAULT 'Curated active catalog sections are controlled by product status and feature toggles.',
+    "contactEmail" TEXT NOT NULL DEFAULT '',
+    "contactPhone" TEXT NOT NULL DEFAULT '',
+    "whatsappNumber" TEXT NOT NULL DEFAULT '',
+    "storeAddress" TEXT NOT NULL DEFAULT '',
+    "themeAccentColor" TEXT NOT NULL DEFAULT '#6e8f3d',
+    "featuredCategorySlugs" TEXT NOT NULL DEFAULT '[]',
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);

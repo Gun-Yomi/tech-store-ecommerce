@@ -205,3 +205,25 @@ model SavedItem {
   @@unique([userId, productId])
   @@index([productId])
 }
+
+model SitePreference {
+  id                     String   @id @default(cuid())
+  siteName               String   @default("CircuitHaus")
+  storeTagline           String   @default("Premium technology market")
+  logoUrl                String   @default("")
+  announcementText       String   @default("Premium launch deals are live")
+  announcementEnabled    Boolean  @default(true)
+  heroTitle              String   @default("CircuitHaus")
+  heroSubtitle           String   @default("Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.")
+  heroCtaText            String   @default("Shop featured")
+  heroCtaLink            String   @default("/products?sort=featured")
+  homepageBannerText     String   @default("Curated active catalog sections are controlled by product status and feature toggles.")
+  contactEmail           String   @default("")
+  contactPhone           String   @default("")
+  whatsappNumber         String   @default("")
+  storeAddress           String   @default("")
+  themeAccentColor       String   @default("#6e8f3d")
+  featuredCategorySlugs  String   @default("[]")
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}

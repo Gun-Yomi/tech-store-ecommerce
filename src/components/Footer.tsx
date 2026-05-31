@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { getSitePreferences } from "@/lib/admin/data";
 
 const footerSections = [
   {
@@ -33,21 +35,52 @@ const footerSections = [
   },
 ];
 
-export function Footer() {
+function getInitials(value: string) {
+  const words = value.trim().split(/\s+/).filter(Boolean);
+
+  if (words.length === 0) {
+    return "CH";
+  }
+
+  return words
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join("");
+}
+
+export async function Footer() {
+  const preferences = await getSitePreferences();
+  const siteInitials = getInitials(preferences.siteName);
+
   return (
     <footer className="bg-[#253326] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_2fr] lg:px-8">
         <div>
-          <Link href="/" className="inline-flex items-center gap-3" aria-label="CircuitHaus home">
-            <span className="grid h-11 w-11 place-items-center rounded-lg border border-[#d8e978]/35 bg-white/10 text-sm font-black text-[#d8e978]">
-              CH
+          <Link
+            href="/"
+            className="inline-flex items-center gap-3"
+            aria-label={`${preferences.siteName} home`}
+          >
+            <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-lg border border-[#d8e978]/35 bg-white/10 text-sm font-black text-[#d8e978]">
+              {preferences.logoUrl ? (
+                <Image
+                  src={preferences.logoUrl}
+                  alt=""
+                  fill
+                  unoptimized
+                  sizes="44px"
+                  className="object-cover"
+                />
+              ) : (
+                siteInitials
+              )}
             </span>
             <span>
               <span className="block text-xl font-black leading-none tracking-wide">
-                CircuitHaus
+                {preferences.siteName}
               </span>
               <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#d7dfbd]">
-                Premium Tech Market
+                {preferences.storeTagline}
               </span>
             </span>
           </Link>
@@ -80,7 +113,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-sm text-[#bac7ac]">
-        (c) 2026 CircuitHaus. Premium technology market.
+        (c) 2026 {preferences.siteName}. {preferences.storeTagline}.
       </div>
     </footer>
   );

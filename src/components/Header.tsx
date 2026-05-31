@@ -1,6 +1,8 @@
 import { Heart, Menu, Search, ShoppingCart, UserRound } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { getSitePreferences } from "@/lib/admin/data";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getShoppingCounts } from "@/lib/shopping";
 
@@ -11,23 +13,55 @@ const navItems = [
   { label: "Deals", href: "/products?sort=featured" },
 ];
 
+function getInitials(value: string) {
+  const words = value.trim().split(/\s+/).filter(Boolean);
+
+  if (words.length === 0) {
+    return "CH";
+  }
+
+  return words
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join("");
+}
+
 export async function Header() {
-  const user = await getCurrentUser();
+  const [user, preferences] = await Promise.all([
+    getCurrentUser(),
+    getSitePreferences(),
+  ]);
   const counts = await getShoppingCounts(user?.id);
+  const siteInitials = getInitials(preferences.siteName);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#d7dfbd] bg-[#f7f9ef]/95 text-[#344554] shadow-[0_14px_40px_rgba(67,93,45,0.12)] backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="CircuitHaus home">
-          <span className="grid h-10 w-10 place-items-center rounded-lg border border-[#9ab46a]/45 bg-[#e8efd8] text-sm font-black text-[#3b5b2b]">
-            CH
+        <Link
+          href="/"
+          className="flex items-center gap-3"
+          aria-label={`${preferences.siteName} home`}
+        >
+          <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-lg border border-[#9ab46a]/45 bg-[#e8efd8] text-sm font-black text-[#3b5b2b]">
+            {preferences.logoUrl ? (
+              <Image
+                src={preferences.logoUrl}
+                alt=""
+                fill
+                unoptimized
+                sizes="40px"
+                className="object-cover"
+              />
+            ) : (
+              siteInitials
+            )}
           </span>
           <span>
             <span className="block text-lg font-black leading-none tracking-wide">
-              CircuitHaus
+              {preferences.siteName}
             </span>
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#6f7f49]">
-              Tech Market
+              {preferences.storeTagline}
             </span>
           </span>
         </Link>

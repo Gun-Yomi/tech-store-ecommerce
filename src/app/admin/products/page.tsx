@@ -1,0 +1,254 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Archive, Pencil, Plus, Trash2 } from "lucide-react";
+import { AdminActionMessage } from "@/components/admin/AdminActionMessage";
+import { AdminConfirmButton } from "@/components/admin/AdminConfirmButton";
+import {
+  archiveProductAction,
+  deleteProductAction,
+} from "@/lib/admin/actions";
+import {
+  getAdminCategoryOptions,
+  getAdminProducts,
+  type AdminProductSort,
+} from "@/lib/admin/data";
+import { formatCurrency } from "@/lib/format";
+
+type ProductsAdminPageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+function stringParam(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function statusClass(status: string) {
+  if (status === "ACTIVE") {
+    return "bg-[#eef4df] text-[#3f5b25]";
+  }
+
+  if (status === "DRAFT") {
+    return "bg-[#f7f1d8] text-[#806010]";
+  }
+
+  return "bg-[#f1f1ef] text-[#5f6663]";
+}
+
+export default async function AdminProductsPage({
+  searchParams,
+}: ProductsAdminPageProps) {
+  const params = await searchParams;
+  const filters = {
+    search: stringParam(params.search) ?? "",
+    status: stringParam(params.status) ?? "ALL",
+    categoryId: stringParam(params.categoryId) ?? "ALL",
+    sort: (stringParam(params.sort) ?? "newest") as AdminProductSort,
+  };
+  const [products, categories] = await Promise.all([
+    getAdminProducts(filters),
+    getAdminCategoryOptions(),
+  ]);
+
+  return (
+    <div className="space-y-6">
+      <section className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
+        <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+              Products
+            </p>
+            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326]">
+              Product management
+            </h1>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#60705d]">
+              Search, filter, publish, archive, and safely delete products.
+              Archived and draft products stay hidden from the public storefront.
+            </p>
+          </div>
+          <Link
+            href="/admin/products/new"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+          >
+            <Plus className="h-4 w-4" />
+            Add product
+          </Link>
+        </div>
+      </section>
+
+      <AdminActionMessage success={params.success} error={params.error} />
+
+      <section className="rounded-lg border border-[#d7dfbd] bg-white p-4 shadow-sm">
+        <form className="grid gap-3 lg:grid-cols-[1fr_180px_220px_180px_auto]">
+          <input
+            name="search"
+            type="search"
+            defaultValue={filters.search}
+            placeholder="Search name, SKU, brand, category"
+            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+          />
+          <select
+            name="status"
+            defaultValue={filters.status}
+            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+          >
+            <option value="ALL">All statuses</option>
+            <option value="ACTIVE">Active</option>
+            <option value="DRAFT">Draft</option>
+            <option value="ARCHIVED">Archived</option>
+          </select>
+          <select
+            name="categoryId"
+            defaultValue={filters.categoryId}
+            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+          >
+            <option value="ALL">All categories</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          <select
+            name="sort"
+            defaultValue={filters.sort}
+            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+          >
+            <option value="newest">Newest</option>
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="stock">Stock</option>
+          </select>
+          <button
+            type="submit"
+            className="h-11 rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+          >
+            Apply
+          </button>
+        </form>
+      </section>
+
+      <section className="overflow-hidden rounded-lg border border-[#d7dfbd] bg-white shadow-sm">
+        {products.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-[#edf1df] text-left">
+              <thead className="bg-[#f7f9ef] text-xs font-black uppercase tracking-[0.14em] text-[#60705d]">
+                <tr>
+                  <th className="px-4 py-3">Product</th>
+                  <th className="px-4 py-3">Price</th>
+                  <th className="px-4 py-3">Stock</th>
+                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">References</th>
+                  <th className="px-4 py-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#edf1df]">
+                {products.map((product) => (
+                  <tr key={product.id} className="align-top">
+                    <td className="px-4 py-4">
+                      <div className="flex min-w-[320px] gap-3">
+                        <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-[#edf1df]">
+                          <Image
+                            src={product.featuredImage}
+                            alt={product.name}
+                            fill
+                            unoptimized
+                            sizes="80px"
+                            className="object-cover"
+                          />
+                        </div>
+                        <div>
+                          <p className="font-black text-[#253326]">
+                            {product.name}
+                          </p>
+                          <p className="mt-1 text-xs font-bold text-[#60705d]">
+                            SKU {product.sku}
+                          </p>
+                          <p className="mt-1 text-xs font-bold text-[#60705d]">
+                            {product.brand.name} / {product.category.name}
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4 text-sm font-black text-[#253326]">
+                      <div>{formatCurrency(product.salePrice ?? product.price)}</div>
+                      {product.salePrice ? (
+                        <div className="text-xs font-bold text-[#89937c] line-through">
+                          {formatCurrency(product.price)}
+                        </div>
+                      ) : null}
+                    </td>
+                    <td className="px-4 py-4 text-sm font-black text-[#253326]">
+                      {product.stockQuantity}
+                    </td>
+                    <td className="px-4 py-4">
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs font-black ${statusClass(
+                          product.status,
+                        )}`}
+                      >
+                        {product.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-4 text-xs font-bold leading-5 text-[#60705d]">
+                      Cart {product._count.cartItems}
+                      <br />
+                      Wishlist {product._count.wishlistItems}
+                      <br />
+                      Saved {product._count.savedItems}
+                    </td>
+                    <td className="px-4 py-4">
+                      <div className="flex justify-end gap-2">
+                        <Link
+                          href={`/admin/products/${product.id}/edit`}
+                          className="grid h-9 w-9 place-items-center rounded-lg border border-[#d7dfbd] bg-white text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                          aria-label={`Edit ${product.name}`}
+                        >
+                          <Pencil className="h-4 w-4" />
+                        </Link>
+                        <form action={archiveProductAction}>
+                          <input type="hidden" name="productId" value={product.id} />
+                          <AdminConfirmButton
+                            message={`Archive ${product.name}? It will disappear from the storefront.`}
+                            pendingLabel="..."
+                            className="grid h-9 w-9 place-items-center rounded-lg border border-[#d7dfbd] bg-white text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                          >
+                            <Archive className="h-4 w-4" />
+                          </AdminConfirmButton>
+                        </form>
+                        <form action={deleteProductAction}>
+                          <input type="hidden" name="productId" value={product.id} />
+                          <AdminConfirmButton
+                            message={`Permanently delete ${product.name}? This is blocked if shopping references exist.`}
+                            pendingLabel="..."
+                            className="grid h-9 w-9 place-items-center rounded-lg border border-[#e5b2a8] bg-white text-[#9f2f28] transition hover:bg-[#fff4f1]"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </AdminConfirmButton>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="p-10 text-center">
+            <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+              No products found
+            </h2>
+            <p className="mt-3 text-sm font-semibold text-[#60705d]">
+              Adjust filters or add a new product to the catalog.
+            </p>
+            <Link
+              href="/admin/products/new"
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            >
+              Add product
+            </Link>
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
