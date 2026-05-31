@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Heart, Package, Settings, ShieldCheck, UserRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,18 +10,21 @@ import { requireUser } from "@/lib/auth/guards";
 const accountCards = [
   {
     title: "Orders",
-    detail: "Order history will appear after checkout is built in Phase 6.",
+    detail: "View submitted manual checkout orders and fulfillment progress.",
     icon: Package,
+    href: "/account/orders",
   },
   {
     title: "Wishlist",
     detail: "Wishlist storage is active. Manage favorites from the wishlist page.",
     icon: Heart,
+    href: "/wishlist",
   },
   {
     title: "Saved Items",
     detail: "Saved-for-later items are available below your cart.",
     icon: ShieldCheck,
+    href: "/cart",
   },
   {
     title: "Settings",
@@ -80,6 +84,14 @@ export default async function AccountPage() {
                   <p className="mt-2 text-sm leading-6 text-[#60705d]">
                     {card.detail}
                   </p>
+                  {card.href ? (
+                    <Link
+                      href={card.href}
+                      className="mt-5 inline-flex text-sm font-black text-[#5f7d33] hover:text-[#435d2d]"
+                    >
+                      Open
+                    </Link>
+                  ) : null}
                 </article>
               );
             })}

@@ -68,6 +68,9 @@ export async function getAdminDashboardStats() {
     cartItems,
     wishlistItems,
     savedItems,
+    totalOrders,
+    pendingOrders,
+    unpaidOrders,
   ] = await Promise.all([
     prisma.product.count(),
     prisma.product.count({ where: { status: "ACTIVE" } }),
@@ -79,6 +82,9 @@ export async function getAdminDashboardStats() {
     prisma.cartItem.count(),
     prisma.wishlistItem.count(),
     prisma.savedItem.count(),
+    prisma.order.count(),
+    prisma.order.count({ where: { status: "PENDING" } }),
+    prisma.order.count({ where: { paymentStatus: "UNPAID" } }),
   ]);
 
   return {
@@ -92,6 +98,9 @@ export async function getAdminDashboardStats() {
     cartItems,
     wishlistItems,
     savedItems,
+    totalOrders,
+    pendingOrders,
+    unpaidOrders,
   };
 }
 

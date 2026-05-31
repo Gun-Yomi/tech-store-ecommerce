@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Boxes,
   Building2,
+  ClipboardList,
   FolderTree,
   Gauge,
   House,
@@ -14,6 +15,7 @@ import { requireAdmin } from "@/lib/auth/guards";
 
 const adminNav = [
   { label: "Dashboard", href: "/admin", icon: Gauge },
+  { label: "Orders", href: "/admin/orders", icon: ClipboardList },
   { label: "Products", href: "/admin/products", icon: Boxes },
   { label: "Categories", href: "/admin/categories", icon: FolderTree },
   { label: "Brands", href: "/admin/brands", icon: Building2 },

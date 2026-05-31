@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Boxes,
   Building2,
+  ClipboardList,
   FolderTree,
   PackageCheck,
   PackageMinus,
@@ -13,6 +14,7 @@ import {
 import { getAdminDashboardStats } from "@/lib/admin/data";
 
 const quickLinks = [
+  { label: "Manage Orders", href: "/admin/orders" },
   { label: "Manage Products", href: "/admin/products" },
   { label: "Add Product", href: "/admin/products/new" },
   { label: "Manage Categories", href: "/admin/categories" },
@@ -60,8 +62,13 @@ export default async function AdminDashboardPage() {
       icon: UsersRound,
     },
     {
-      label: "Cart placeholders",
-      value: stats.cartItems + stats.wishlistItems + stats.savedItems,
+      label: "Total orders",
+      value: stats.totalOrders,
+      icon: ClipboardList,
+    },
+    {
+      label: "Pending orders",
+      value: stats.pendingOrders,
       icon: ShoppingCart,
     },
   ];
@@ -78,8 +85,8 @@ export default async function AdminDashboardPage() {
               Admin command center
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#60705d]">
-              Manage catalog content, user access, homepage messaging, and Phase
-              6 order placeholders from one secure area.
+              Manage catalog content, user access, homepage messaging, manual
+              checkout orders, and fulfillment status from one secure area.
             </p>
           </div>
           <Link
@@ -147,12 +154,18 @@ export default async function AdminDashboardPage() {
             Orders
           </p>
           <h2 className="mt-3 text-2xl font-black tracking-normal text-[#253326]">
-            Phase 6 placeholder
+            Manual checkout active
           </h2>
           <p className="mt-3 text-sm leading-6 text-[#60705d]">
-            Checkout, payments, order creation, and admin order management are
-            intentionally not built in Phase 5.
+            {stats.unpaidOrders} orders are currently unpaid. Online payment
+            gateway integration remains reserved for a later phase.
           </p>
+          <Link
+            href="/admin/orders"
+            className="mt-5 inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+          >
+            Manage orders
+          </Link>
         </aside>
       </section>
     </div>

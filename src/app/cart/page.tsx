@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShoppingCart } from "lucide-react";
+import { AlertTriangle, ArrowRight, ShoppingCart } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CartItemControls } from "@/components/shopping/CartItemControls";
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
 export default async function CartPage() {
   const user = await requireUser();
   const cart = await getCartPageData(user.id);
+  const blockingItems = cart.cartItems.filter(
+    (item) =>
+      item.product.status !== "ACTIVE" ||
+      item.product.brand.status !== "ACTIVE" ||
+      item.product.category.status !== "ACTIVE" ||
+      item.product.stockQuantity < item.quantity ||
+      item.quantity < 1,
+  );
 
   return (
     <>
@@ -35,7 +43,7 @@ export default async function CartPage() {
                 </h1>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
                   Manage quantities, remove products, or save items for later.
-                  Checkout remains reserved for Phase 6.
+                  Checkout now submits a manual order for confirmation.
                 </p>
               </div>
               <div className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-5 py-4 text-sm font-black text-[#344554]">
@@ -98,14 +106,21 @@ export default async function CartPage() {
                             </div>
                             <p
                               className={`mt-2 text-xs font-black ${
-                                item.product.stockQuantity > 0
+                                item.product.stockQuantity >= item.quantity &&
+                                item.product.status === "ACTIVE" &&
+                                item.product.brand.status === "ACTIVE" &&
+                                item.product.category.status === "ACTIVE"
                                   ? "text-[#5f7d33]"
                                   : "text-[#9f2f28]"
                               }`}
                             >
-                              {item.product.stockQuantity > 0
-                                ? `${item.product.stockQuantity} in stock`
-                                : "Out of stock"}
+                              {item.product.status !== "ACTIVE" ||
+                              item.product.brand.status !== "ACTIVE" ||
+                              item.product.category.status !== "ACTIVE"
+                                ? "No longer available"
+                                : item.product.stockQuantity >= item.quantity
+                                  ? `${item.product.stockQuantity} in stock`
+                                  : `Only ${item.product.stockQuantity} available`}
                             </p>
                           </div>
                           <CartItemControls
@@ -210,13 +225,30 @@ export default async function CartPage() {
                   <span className="text-[#253326]">{formatCurrency(cart.subtotal)}</span>
                 </div>
               </div>
-              <button
-                type="button"
-                disabled
-                className="mt-5 inline-flex h-12 w-full cursor-not-allowed items-center justify-center rounded-lg bg-[#a9b59a] px-5 text-sm font-black text-white"
-              >
-                Checkout will be added in Phase 6
-              </button>
+              {blockingItems.length > 0 ? (
+                <div className="mt-5 rounded-lg border border-[#e5b2a8] bg-[#fff4f1] p-4 text-sm font-bold text-[#9f2f28]">
+                  <span className="flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4" />
+                    Review unavailable or low-stock items before checkout.
+                  </span>
+                </div>
+              ) : null}
+              {cart.cartItems.length > 0 && blockingItems.length === 0 ? (
+                <Link
+                  href="/checkout"
+                  className="mt-5 inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+                >
+                  Proceed to checkout
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="mt-5 inline-flex h-12 w-full cursor-not-allowed items-center justify-center rounded-lg bg-[#a9b59a] px-5 text-sm font-black text-white"
+                >
+                  Checkout unavailable
+                </button>
+              )}
               <Link
                 href="/products"
                 className="mt-3 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#b7c891] bg-white px-5 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"

@@ -1,7 +1,8 @@
-import { Heart, Menu, Search, ShoppingCart, UserRound } from "lucide-react";
+import { Heart, Search, ShoppingCart, UserRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { MobileHeaderMenu } from "@/components/MobileHeaderMenu";
 import { getSitePreferences } from "@/lib/admin/data";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getShoppingCounts } from "@/lib/shopping";
@@ -156,13 +157,19 @@ export async function Header() {
             </div>
           )}
 
-          <button
-            type="button"
-            className="grid h-10 w-10 place-items-center rounded-lg border border-[#d7dfbd] bg-white/70 text-[#344554] lg:hidden"
-            aria-label="Open menu placeholder"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
+          <MobileHeaderMenu
+            counts={counts}
+            navItems={navItems}
+            user={
+              user
+                ? {
+                    email: user.email,
+                    name: user.name,
+                    role: user.role,
+                  }
+                : null
+            }
+          />
         </div>
       </div>
       <div className="border-t border-[#d7dfbd] px-4 py-3 sm:hidden">

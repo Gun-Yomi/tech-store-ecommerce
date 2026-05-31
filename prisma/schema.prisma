@@ -33,6 +33,24 @@ enum CatalogStatus {
   INACTIVE
 }
 
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  READY_FOR_PICKUP
+  SHIPPED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  UNPAID
+  PENDING
+  PAID
+  REFUNDED
+  FAILED
+}
+
 model User {
   id            String     @id @default(cuid())
   name          String
@@ -45,6 +63,7 @@ model User {
   status        UserStatus @default(ACTIVE)
   sessions      Session[]
   cart          Cart?
+  orders        Order[]
   wishlistItems WishlistItem[]
   savedItems    SavedItem[]
   createdAt     DateTime   @default(now())
@@ -131,6 +150,7 @@ model Product {
   category         Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict)
   images           ProductImage[]
   cartItems        CartItem[]
+  orderItems       OrderItem[]
   wishlistItems    WishlistItem[]
   savedItems       SavedItem[]
   createdAt        DateTime       @default(now())
@@ -226,4 +246,53 @@ model SitePreference {
   featuredCategorySlugs  String   @default("[]")
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
+}
+
+model Order {
+  id                   String        @id @default(cuid())
+  orderNumber          String        @unique
+  userId               String
+  customerName         String
+  customerEmail        String
+  customerPhone        String
+  shippingAddressLine1 String
+  shippingAddressLine2 String        @default("")
+  cityParishState      String
+  country              String
+  deliveryMethod       String        @default("DELIVERY")
+  notes                String        @default("")
+  subtotal             Int
+  discountTotal        Int           @default(0)
+  shippingTotal        Int           @default(0)
+  taxTotal             Int           @default(0)
+  total                Int
+  status               OrderStatus   @default(PENDING)
+  paymentStatus        PaymentStatus @default(UNPAID)
+  stockRestoredAt      DateTime?
+  user                 User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  items                OrderItem[]
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@index([paymentStatus, createdAt])
+}
+
+model OrderItem {
+  id                 String   @id @default(cuid())
+  orderId            String
+  productId          String
+  productNameSnapshot String
+  productSkuSnapshot String
+  priceSnapshot      Int
+  salePriceSnapshot  Int?
+  quantity           Int
+  lineTotal          Int
+  order              Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product            Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  createdAt          DateTime @default(now())
+
+  @@index([orderId])
+  @@index([productId])
 }
