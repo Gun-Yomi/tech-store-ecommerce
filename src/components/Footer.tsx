@@ -2,39 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getSitePreferences } from "@/lib/admin/data";
 
-const footerSections = [
-  {
-    title: "Shop",
-    links: [
-      { label: "Products", href: "/products" },
-      { label: "Categories", href: "/categories" },
-      { label: "Brands", href: "/brands" },
-      { label: "Phones", href: "/categories/phones" },
-      { label: "Laptops", href: "/categories/laptops" },
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      { label: "Warranty", href: "#" },
-      { label: "Shipping", href: "#" },
-      { label: "Returns", href: "#" },
-      { label: "Repairs", href: "/categories/repairs-parts" },
-      { label: "Contact", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Accessibility", href: "#" },
-    ],
-  },
-];
-
 function getInitials(value: string) {
   const words = value.trim().split(/\s+/).filter(Boolean);
 
@@ -48,9 +15,48 @@ function getInitials(value: string) {
     .join("");
 }
 
+function getFooterSections(contactEmail: string) {
+  return [
+    {
+      title: "Shop",
+      links: [
+        { label: "Products", href: "/products" },
+        { label: "Categories", href: "/categories" },
+        { label: "Brands", href: "/brands" },
+        { label: "Phones", href: "/categories/phones" },
+        { label: "Laptops", href: "/categories/laptops" },
+      ],
+    },
+    {
+      title: "Orders",
+      links: [
+        { label: "Cart", href: "/cart" },
+        { label: "Wishlist", href: "/wishlist" },
+        { label: "Saved items", href: "/cart#saved-items" },
+        { label: "Checkout", href: "/checkout" },
+        { label: "Order history", href: "/account/orders" },
+      ],
+    },
+    {
+      title: "Account",
+      links: [
+        { label: "Account home", href: "/account" },
+        { label: "Login", href: "/login" },
+        { label: "Create account", href: "/register" },
+        { label: "Admin", href: "/admin" },
+        {
+          label: "Contact",
+          href: contactEmail ? `mailto:${contactEmail}` : "/products",
+        },
+      ],
+    },
+  ];
+}
+
 export async function Footer() {
   const preferences = await getSitePreferences();
   const siteInitials = getInitials(preferences.siteName);
+  const footerSections = getFooterSections(preferences.contactEmail);
 
   return (
     <footer className="bg-[#253326] text-white">

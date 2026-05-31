@@ -43,19 +43,30 @@ function TextInput({
   required?: boolean;
   placeholder?: string;
 }) {
+  const errorId = `${name}-error`;
+
   return (
-    <label className="block">
-      <span className="text-sm font-black text-[#253326]">{label}</span>
+    <div>
+      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+        {label}
+      </label>
       <input
+        id={name}
         name={name}
         type={type}
         defaultValue={defaultValue}
         required={required}
         placeholder={placeholder}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
       />
-      {error ? <p className="mt-2 text-xs font-bold text-[#9f2f28]">{error}</p> : null}
-    </label>
+      {error ? (
+        <p id={errorId} className="mt-2 text-xs font-bold text-[#9f2f28]">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }
 
@@ -68,7 +79,10 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
   return (
     <form action={formAction} className="space-y-5">
       {state.formError ? (
-        <div className="rounded-lg border border-[#e5b2a8] bg-[#fff4f1] px-4 py-3 text-sm font-bold text-[#9f2f28]">
+        <div
+          role="alert"
+          className="rounded-lg border border-[#e5b2a8] bg-[#fff4f1] px-4 py-3 text-sm font-bold text-[#9f2f28]"
+        >
           {state.formError}
         </div>
       ) : null}
@@ -101,24 +115,37 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
             error={fieldError(state, "phone")}
             placeholder="+1 555 0100"
           />
-          <label className="block">
-            <span className="text-sm font-black text-[#253326]">
+          <div>
+            <label
+              htmlFor="deliveryMethod"
+              className="block text-sm font-black text-[#253326]"
+            >
               Delivery option
-            </span>
+            </label>
             <select
+              id="deliveryMethod"
               name="deliveryMethod"
               defaultValue={stateValue(state, "deliveryMethod", "DELIVERY")}
+              aria-invalid={Boolean(fieldError(state, "deliveryMethod"))}
+              aria-describedby={
+                fieldError(state, "deliveryMethod")
+                  ? "deliveryMethod-error"
+                  : undefined
+              }
               className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition focus:border-[#6e8f3d]"
             >
               <option value="DELIVERY">Delivery</option>
               <option value="PICKUP">Pickup / manual confirmation</option>
             </select>
             {fieldError(state, "deliveryMethod") ? (
-              <p className="mt-2 text-xs font-bold text-[#9f2f28]">
+              <p
+                id="deliveryMethod-error"
+                className="mt-2 text-xs font-bold text-[#9f2f28]"
+              >
                 {fieldError(state, "deliveryMethod")}
               </p>
             ) : null}
-          </label>
+          </div>
         </div>
       </div>
 
@@ -157,23 +184,26 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
               error={fieldError(state, "country")}
             />
           </div>
-          <label className="block">
-            <span className="text-sm font-black text-[#253326]">
+          <div>
+            <label htmlFor="notes" className="block text-sm font-black text-[#253326]">
               Order notes
-            </span>
+            </label>
             <textarea
+              id="notes"
               name="notes"
               defaultValue={stateValue(state, "notes")}
               rows={4}
+              aria-invalid={Boolean(fieldError(state, "notes"))}
+              aria-describedby={fieldError(state, "notes") ? "notes-error" : undefined}
               className="mt-2 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 py-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
               placeholder="Delivery notes, pickup preference, or anything the team should know."
             />
             {fieldError(state, "notes") ? (
-              <p className="mt-2 text-xs font-bold text-[#9f2f28]">
+              <p id="notes-error" className="mt-2 text-xs font-bold text-[#9f2f28]">
                 {fieldError(state, "notes")}
               </p>
             ) : null}
-          </label>
+          </div>
         </div>
       </div>
 

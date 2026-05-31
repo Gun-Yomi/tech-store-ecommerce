@@ -10,8 +10,8 @@ import { formatCurrency } from "@/lib/format";
 import { getWishlistPageData } from "@/lib/shopping";
 
 export const metadata: Metadata = {
-  title: "Wishlist | CircuitHaus",
-  description: "Review and move CircuitHaus wishlist products into your cart.",
+  title: "Wishlist",
+  description: "Review and move wishlist products into your cart.",
 };
 
 export default async function WishlistPage() {

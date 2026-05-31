@@ -11,8 +11,8 @@ type AccountOrderDetailPageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "Order Details | CircuitHaus",
-  description: "Review a CircuitHaus order from your account.",
+  title: "Order Details",
+  description: "Review an order from your account.",
 };
 
 export default async function AccountOrderDetailPage({

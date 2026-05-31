@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { getSitePreferences } from "@/lib/admin/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,11 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "CircuitHaus | Premium Tech Market",
-  description:
-    "A premium e-commerce foundation for phones, laptops, desktops, cameras, accessories, and high-end technology products.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const preferences = await getSitePreferences();
+
+  return {
+    title: {
+      default: `${preferences.siteName} | ${preferences.storeTagline}`,
+      template: `%s | ${preferences.siteName}`,
+    },
+    description:
+      preferences.heroSubtitle ||
+      "A premium e-commerce foundation for phones, laptops, desktops, cameras, accessories, and high-end technology products.",
+  };
+}
 
 export default function RootLayout({
   children,

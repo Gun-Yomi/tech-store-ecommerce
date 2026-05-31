@@ -72,12 +72,18 @@ export function ProductForm({
       <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-2">
           <label className="block">
-            <span className="text-sm font-black text-[#253326]">Product name</span>
+            <span className="text-sm font-black text-[#253326]" id="name-label">
+              Product name
+            </span>
             <input
+              id="name"
               name="name"
               type="text"
               required
               defaultValue={stateValue(state, "name", product?.name)}
+              aria-labelledby="name-label"
+              aria-invalid={Boolean(fieldError(state, "name"))}
+              aria-describedby={fieldError(state, "name") ? "name-error" : undefined}
               onChange={(event) => {
                 if (!slugEdited) {
                   setSlug(slugify(event.target.value));
@@ -86,19 +92,25 @@ export function ProductForm({
               className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
             />
             {fieldError(state, "name") ? (
-              <p className="mt-2 text-xs font-bold text-[#9f2f28]">
+              <p id="name-error" className="mt-2 text-xs font-bold text-[#9f2f28]">
                 {fieldError(state, "name")}
               </p>
             ) : null}
           </label>
 
           <label className="block">
-            <span className="text-sm font-black text-[#253326]">Slug</span>
+            <span className="text-sm font-black text-[#253326]" id="slug-label">
+              Slug
+            </span>
             <input
+              id="slug"
               name="slug"
               type="text"
               required
               value={slug}
+              aria-labelledby="slug-label"
+              aria-invalid={Boolean(fieldError(state, "slug"))}
+              aria-describedby={fieldError(state, "slug") ? "slug-error" : undefined}
               onChange={(event) => {
                 setSlugEdited(true);
                 setSlug(slugify(event.target.value));
@@ -106,7 +118,7 @@ export function ProductForm({
               className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
             />
             {fieldError(state, "slug") ? (
-              <p className="mt-2 text-xs font-bold text-[#9f2f28]">
+              <p id="slug-error" className="mt-2 text-xs font-bold text-[#9f2f28]">
                 {fieldError(state, "slug")}
               </p>
             ) : null}

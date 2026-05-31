@@ -14,7 +14,7 @@ import {
 } from "@/lib/catalog-params";
 
 export const metadata: Metadata = {
-  title: "Products | CircuitHaus",
+  title: "Products",
   description:
     "Search and filter premium phones, laptops, desktops, cameras, gaming gear, accessories, networking, components, and repair parts.",
 };

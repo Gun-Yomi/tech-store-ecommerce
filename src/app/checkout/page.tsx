@@ -10,8 +10,8 @@ import { formatCurrency } from "@/lib/format";
 import { getCheckoutCart } from "@/lib/orders/data";
 
 export const metadata: Metadata = {
-  title: "Checkout | CircuitHaus",
-  description: "Submit a manual order for CircuitHaus products.",
+  title: "Checkout",
+  description: "Submit a manual order for store products.",
 };
 
 function itemIsPurchasable(item: NonNullable<Awaited<ReturnType<typeof getCheckoutCart>>>["items"][number]) {

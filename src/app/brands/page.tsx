@@ -6,9 +6,9 @@ import { EmptyState } from "@/components/catalog/EmptyState";
 import { getBrands } from "@/lib/catalog";
 
 export const metadata: Metadata = {
-  title: "Brands | CircuitHaus",
+  title: "Brands",
   description:
-    "Browse active technology brands stocked by CircuitHaus, including mobile, workstation, creator, gaming, networking, and accessory makers.",
+    "Browse active technology brands, including mobile, workstation, creator, gaming, networking, and accessory makers.",
 };
 
 export default async function BrandsPage() {

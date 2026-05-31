@@ -28,12 +28,12 @@ export async function generateMetadata({
 
   if (!category) {
     return {
-      title: "Category Not Found | CircuitHaus",
+      title: "Category Not Found",
     };
   }
 
   return {
-    title: `${category.name} | CircuitHaus`,
+    title: category.name,
     description: category.description,
   };
 }

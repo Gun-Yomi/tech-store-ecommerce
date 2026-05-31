@@ -96,8 +96,8 @@ export async function sendRegistrationCodeEmail({
     to,
     code,
     expiresAt,
-    subject: "Your CircuitHaus verification code",
-    intro: "Your CircuitHaus verification code is",
+    subject: "Your account verification code",
+    intro: "Your account verification code is",
   });
 }
 
@@ -110,7 +110,7 @@ export async function sendPasswordResetCodeEmail({
     to,
     code,
     expiresAt,
-    subject: "Reset your CircuitHaus password",
-    intro: "Your CircuitHaus password reset code is",
+    subject: "Reset your password",
+    intro: "Your password reset code is",
   });
 }

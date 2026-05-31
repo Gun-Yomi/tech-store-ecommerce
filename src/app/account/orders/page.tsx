@@ -9,8 +9,8 @@ import { formatCurrency } from "@/lib/format";
 import { getCustomerOrders } from "@/lib/orders/data";
 
 export const metadata: Metadata = {
-  title: "My Orders | CircuitHaus",
-  description: "Review your CircuitHaus order history.",
+  title: "My Orders",
+  description: "Review your order history.",
 };
 
 function formatDate(value: Date) {

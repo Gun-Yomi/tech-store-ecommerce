@@ -45,19 +45,30 @@ export function AdminTextInput({
   placeholder,
   required,
 }: TextInputProps) {
+  const errorId = `${name}-error`;
+
   return (
-    <label className="block">
-      <span className="text-sm font-black text-[#253326]">{label}</span>
+    <div>
+      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+        {label}
+      </label>
       <input
+        id={name}
         name={name}
         type={type}
         defaultValue={defaultValue ?? ""}
         placeholder={placeholder}
         required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className={inputClass}
       />
-      {error ? <p className="mt-2 text-xs font-bold text-[#9f2f28]">{error}</p> : null}
-    </label>
+      {error ? (
+        <p id={errorId} className="mt-2 text-xs font-bold text-[#9f2f28]">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }
 
@@ -70,19 +81,30 @@ export function AdminTextarea({
   rows = 4,
   required,
 }: TextareaProps) {
+  const errorId = `${name}-error`;
+
   return (
-    <label className="block">
-      <span className="text-sm font-black text-[#253326]">{label}</span>
+    <div>
+      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+        {label}
+      </label>
       <textarea
+        id={name}
         name={name}
         defaultValue={defaultValue ?? ""}
         placeholder={placeholder}
         rows={rows}
         required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className={textareaClass}
       />
-      {error ? <p className="mt-2 text-xs font-bold text-[#9f2f28]">{error}</p> : null}
-    </label>
+      {error ? (
+        <p id={errorId} className="mt-2 text-xs font-bold text-[#9f2f28]">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }
 
@@ -94,19 +116,30 @@ export function AdminSelect({
   children,
   required,
 }: SelectProps) {
+  const errorId = `${name}-error`;
+
   return (
-    <label className="block">
-      <span className="text-sm font-black text-[#253326]">{label}</span>
+    <div>
+      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+        {label}
+      </label>
       <select
+        id={name}
         name={name}
         defaultValue={defaultValue ?? ""}
         required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className={inputClass}
       >
         {children}
       </select>
-      {error ? <p className="mt-2 text-xs font-bold text-[#9f2f28]">{error}</p> : null}
-    </label>
+      {error ? (
+        <p id={errorId} className="mt-2 text-xs font-bold text-[#9f2f28]">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }
 

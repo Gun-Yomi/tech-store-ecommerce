@@ -11,8 +11,8 @@ type OrderConfirmationPageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "Order Confirmation | CircuitHaus",
-  description: "Review your submitted CircuitHaus order.",
+  title: "Order Confirmation",
+  description: "Review your submitted order.",
 };
 
 export default async function OrderConfirmationPage({

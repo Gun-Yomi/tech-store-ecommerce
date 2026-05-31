@@ -27,12 +27,12 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "Product Not Found | CircuitHaus",
+      title: "Product Not Found",
     };
   }
 
   return {
-    title: `${product.name} | CircuitHaus`,
+    title: product.name,
     description: product.shortDescription,
   };
 }

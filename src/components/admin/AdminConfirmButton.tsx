@@ -3,6 +3,7 @@
 import { useFormStatus } from "react-dom";
 
 type AdminConfirmButtonProps = {
+  ariaLabel: string;
   children: React.ReactNode;
   message: string;
   pendingLabel: string;
@@ -10,6 +11,7 @@ type AdminConfirmButtonProps = {
 };
 
 export function AdminConfirmButton({
+  ariaLabel,
   children,
   message,
   pendingLabel,
@@ -21,6 +23,7 @@ export function AdminConfirmButton({
     <button
       type="submit"
       disabled={pending}
+      aria-label={ariaLabel}
       onClick={(event) => {
         if (!window.confirm(message)) {
           event.preventDefault();

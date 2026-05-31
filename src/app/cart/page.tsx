@@ -11,8 +11,8 @@ import { formatCurrency } from "@/lib/format";
 import { getCartPageData } from "@/lib/shopping";
 
 export const metadata: Metadata = {
-  title: "Cart | CircuitHaus",
-  description: "Review your CircuitHaus cart and save items for later.",
+  title: "Cart",
+  description: "Review your cart and save items for later.",
 };
 
 export default async function CartPage() {
@@ -154,7 +154,7 @@ export default async function CartPage() {
                 </div>
               )}
 
-              <section className="space-y-4">
+              <section id="saved-items" className="scroll-mt-28 space-y-4">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
                     Save for later

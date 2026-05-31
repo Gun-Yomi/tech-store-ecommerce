@@ -6,9 +6,9 @@ import { EmptyState } from "@/components/catalog/EmptyState";
 import { getCategories } from "@/lib/catalog";
 
 export const metadata: Metadata = {
-  title: "Categories | CircuitHaus",
+  title: "Categories",
   description:
-    "Explore active CircuitHaus departments for phones, laptops, desktops, cameras, tablets, gaming, accessories, smart gadgets, networking, components, and repair parts.",
+    "Explore active departments for phones, laptops, desktops, cameras, tablets, gaming, accessories, smart gadgets, networking, components, and repair parts.",
 };
 
 export default async function CategoriesPage() {

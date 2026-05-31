@@ -28,12 +28,12 @@ export async function generateMetadata({
 
   if (!brand) {
     return {
-      title: "Brand Not Found | CircuitHaus",
+      title: "Brand Not Found",
     };
   }
 
   return {
-    title: `${brand.name} | CircuitHaus`,
+    title: brand.name,
     description: brand.description,
   };
 }

@@ -54,12 +54,14 @@ export default async function AdminOrdersPage({
           <input
             name="search"
             type="search"
+            aria-label="Search orders"
             defaultValue={filters.search}
             placeholder="Search order number, customer, or email"
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           />
           <select
             name="status"
+            aria-label="Order status"
             defaultValue={filters.status}
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           >
@@ -72,6 +74,7 @@ export default async function AdminOrdersPage({
           </select>
           <select
             name="paymentStatus"
+            aria-label="Payment status"
             defaultValue={filters.paymentStatus}
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           >

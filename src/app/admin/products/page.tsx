@@ -82,12 +82,14 @@ export default async function AdminProductsPage({
           <input
             name="search"
             type="search"
+            aria-label="Search products"
             defaultValue={filters.search}
             placeholder="Search name, SKU, brand, category"
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           />
           <select
             name="status"
+            aria-label="Product status"
             defaultValue={filters.status}
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           >
@@ -98,6 +100,7 @@ export default async function AdminProductsPage({
           </select>
           <select
             name="categoryId"
+            aria-label="Product category"
             defaultValue={filters.categoryId}
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           >
@@ -110,6 +113,7 @@ export default async function AdminProductsPage({
           </select>
           <select
             name="sort"
+            aria-label="Product sort"
             defaultValue={filters.sort}
             className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
           >
@@ -208,6 +212,7 @@ export default async function AdminProductsPage({
                         <form action={archiveProductAction}>
                           <input type="hidden" name="productId" value={product.id} />
                           <AdminConfirmButton
+                            ariaLabel={`Archive ${product.name}`}
                             message={`Archive ${product.name}? It will disappear from the storefront.`}
                             pendingLabel="..."
                             className="grid h-9 w-9 place-items-center rounded-lg border border-[#d7dfbd] bg-white text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
@@ -218,6 +223,7 @@ export default async function AdminProductsPage({
                         <form action={deleteProductAction}>
                           <input type="hidden" name="productId" value={product.id} />
                           <AdminConfirmButton
+                            ariaLabel={`Permanently delete ${product.name}`}
                             message={`Permanently delete ${product.name}? This is blocked if shopping references exist.`}
                             pendingLabel="..."
                             className="grid h-9 w-9 place-items-center rounded-lg border border-[#e5b2a8] bg-white text-[#9f2f28] transition hover:bg-[#fff4f1]"

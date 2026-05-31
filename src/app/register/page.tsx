@@ -18,8 +18,8 @@ export default async function RegisterPage() {
       <main>
         <AuthShell
           eyebrow="Create account"
-          title="Build your CircuitHaus profile"
-          subtitle="Create a protected customer profile today. Cart, wishlist, saved items, and order workflows are reserved for later phases."
+          title="Build your customer profile"
+          subtitle="Create a protected customer profile for cart, wishlist, saved items, and order workflows."
         >
           <RegisterForm />
         </AuthShell>

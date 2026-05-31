@@ -65,7 +65,7 @@ export function LoginForm({ successMessage }: LoginFormProps) {
       </div>
 
       <p className="text-center text-sm font-medium text-[#60705d]">
-        New to CircuitHaus?{" "}
+        New here?{" "}
         <Link href="/register" className="font-black text-[#5f7d33] hover:text-[#435d2d]">
           Create an account
         </Link>
