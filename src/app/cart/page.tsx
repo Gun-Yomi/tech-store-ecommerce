@@ -30,23 +30,23 @@ export default async function CartPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee]">
-        <section className="border-b border-[#d7dfbd] bg-white py-14 sm:py-16">
+      <main className="bg-[#f5f9ff]">
+        <section className="border-b border-[#cfe0f2] bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               Cart
             </p>
             <div className="mt-3 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
               <div>
-                <h1 className="text-4xl font-black tracking-normal text-[#253326] sm:text-5xl">
+                <h1 className="text-4xl font-black tracking-normal text-[#1f2a44] sm:text-5xl">
                   Your shopping cart
                 </h1>
-                <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5f6f85]">
                   Manage quantities, remove products, or save items for later.
                   Checkout now submits a manual order for confirmation.
                 </p>
               </div>
-              <div className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-5 py-4 text-sm font-black text-[#344554]">
+              <div className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] px-5 py-4 text-sm font-black text-[#334155]">
                 {cart.itemCount} items
               </div>
             </div>
@@ -65,11 +65,11 @@ export default async function CartPage() {
                     return (
                       <article
                         key={item.id}
-                        className="grid gap-4 rounded-lg border border-[#d7dfbd] bg-white p-4 shadow-sm sm:grid-cols-[150px_1fr] sm:p-5"
+                        className="grid gap-4 rounded-lg border border-[#cfe0f2] bg-white p-4 shadow-sm sm:grid-cols-[150px_1fr] sm:p-5"
                       >
                         <Link
                           href={`/products/${item.product.slug}`}
-                          className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#edf1df]"
+                          className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#edf6ff]"
                         >
                           <Image
                             src={item.product.featuredImage}
@@ -84,23 +84,23 @@ export default async function CartPage() {
                           <div>
                             <Link
                               href={`/products/${item.product.slug}`}
-                              className="text-xl font-black tracking-normal text-[#253326] hover:text-[#5f7d33]"
+                              className="text-xl font-black tracking-normal text-[#1f2a44] hover:text-[#2f7fb3]"
                             >
                               {item.product.name}
                             </Link>
-                            <p className="mt-2 text-sm font-bold text-[#60705d]">
+                            <p className="mt-2 text-sm font-bold text-[#5f6f85]">
                               {item.product.brand.name} / {item.product.category.name}
                             </p>
                             <div className="mt-4 flex flex-wrap items-baseline gap-2">
-                              <span className="text-2xl font-black text-[#253326]">
+                              <span className="text-2xl font-black text-[#1f2a44]">
                                 {formatCurrency(price)}
                               </span>
                               {item.product.salePrice ? (
-                                <span className="text-sm font-bold text-[#89937c] line-through">
+                                <span className="text-sm font-bold text-[#8b96a8] line-through">
                                   {formatCurrency(item.product.price)}
                                 </span>
                               ) : null}
-                              <span className="text-sm font-bold text-[#60705d]">
+                              <span className="text-sm font-bold text-[#5f6f85]">
                                 Line: {formatCurrency(lineTotal)}
                               </span>
                             </div>
@@ -110,7 +110,7 @@ export default async function CartPage() {
                                 item.product.status === "ACTIVE" &&
                                 item.product.brand.status === "ACTIVE" &&
                                 item.product.category.status === "ACTIVE"
-                                  ? "text-[#5f7d33]"
+                                  ? "text-[#2f7fb3]"
                                   : "text-[#9f2f28]"
                               }`}
                             >
@@ -134,20 +134,20 @@ export default async function CartPage() {
                   })}
                 </div>
               ) : (
-                <div className="rounded-lg border border-dashed border-[#b7c891] bg-white p-8 text-center shadow-sm">
-                  <span className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-[#eef4df] text-[#344554]">
+                <div className="rounded-lg border border-dashed border-[#9fc5e8] bg-white p-8 text-center shadow-sm">
+                  <span className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-[#eaf6ff] text-[#334155]">
                     <ShoppingCart className="h-7 w-7" />
                   </span>
-                  <h2 className="mt-5 text-2xl font-black tracking-normal text-[#253326]">
+                  <h2 className="mt-5 text-2xl font-black tracking-normal text-[#1f2a44]">
                     Your cart is empty
                   </h2>
-                  <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#60705d]">
+                  <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#5f6f85]">
                     Add active products from the catalog to start building your
                     setup.
                   </p>
                   <Link
                     href="/products"
-                    className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#6e8f3d] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+                    className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#4f9ed8] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
                   >
                     Continue shopping
                   </Link>
@@ -156,10 +156,10 @@ export default async function CartPage() {
 
               <section id="saved-items" className="scroll-mt-28 space-y-4">
                 <div>
-                  <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+                  <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
                     Save for later
                   </p>
-                  <h2 className="mt-2 text-2xl font-black tracking-normal text-[#253326]">
+                  <h2 className="mt-2 text-2xl font-black tracking-normal text-[#1f2a44]">
                     Saved items
                   </h2>
                 </div>
@@ -168,11 +168,11 @@ export default async function CartPage() {
                     {cart.savedItems.map((item) => (
                       <article
                         key={item.id}
-                        className="grid gap-4 rounded-lg border border-[#d7dfbd] bg-white p-4 shadow-sm sm:grid-cols-[120px_1fr] sm:p-5"
+                        className="grid gap-4 rounded-lg border border-[#cfe0f2] bg-white p-4 shadow-sm sm:grid-cols-[120px_1fr] sm:p-5"
                       >
                         <Link
                           href={`/products/${item.product.slug}`}
-                          className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#edf1df]"
+                          className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#edf6ff]"
                         >
                           <Image
                             src={item.product.featuredImage}
@@ -187,11 +187,11 @@ export default async function CartPage() {
                           <div>
                             <Link
                               href={`/products/${item.product.slug}`}
-                              className="text-lg font-black tracking-normal text-[#253326] hover:text-[#5f7d33]"
+                              className="text-lg font-black tracking-normal text-[#1f2a44] hover:text-[#2f7fb3]"
                             >
                               {item.product.name}
                             </Link>
-                            <p className="mt-2 text-sm font-bold text-[#60705d]">
+                            <p className="mt-2 text-sm font-bold text-[#5f6f85]">
                               Qty saved: {item.quantity}
                             </p>
                           </div>
@@ -204,25 +204,25 @@ export default async function CartPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="rounded-lg border border-dashed border-[#b7c891] bg-white p-5 text-sm font-semibold text-[#60705d]">
+                  <div className="rounded-lg border border-dashed border-[#9fc5e8] bg-white p-5 text-sm font-semibold text-[#5f6f85]">
                     No saved items yet.
                   </div>
                 )}
               </section>
             </div>
 
-            <aside className="h-fit rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <aside className="h-fit rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
                 Summary
               </p>
-              <div className="mt-5 space-y-3 border-b border-[#edf1df] pb-5 text-sm font-bold text-[#60705d]">
+              <div className="mt-5 space-y-3 border-b border-[#edf6ff] pb-5 text-sm font-bold text-[#5f6f85]">
                 <div className="flex justify-between gap-4">
                   <span>Subtotal</span>
-                  <span className="text-[#253326]">{formatCurrency(cart.subtotal)}</span>
+                  <span className="text-[#1f2a44]">{formatCurrency(cart.subtotal)}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span>Estimated total</span>
-                  <span className="text-[#253326]">{formatCurrency(cart.subtotal)}</span>
+                  <span className="text-[#1f2a44]">{formatCurrency(cart.subtotal)}</span>
                 </div>
               </div>
               {blockingItems.length > 0 ? (
@@ -236,7 +236,7 @@ export default async function CartPage() {
               {cart.cartItems.length > 0 && blockingItems.length === 0 ? (
                 <Link
                   href="/checkout"
-                  className="mt-5 inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+                  className="mt-5 inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
                 >
                   Proceed to checkout
                 </Link>
@@ -244,14 +244,14 @@ export default async function CartPage() {
                 <button
                   type="button"
                   disabled
-                  className="mt-5 inline-flex h-12 w-full cursor-not-allowed items-center justify-center rounded-lg bg-[#a9b59a] px-5 text-sm font-black text-white"
+                  className="mt-5 inline-flex h-12 w-full cursor-not-allowed items-center justify-center rounded-lg bg-[#a7b7c8] px-5 text-sm font-black text-white"
                 >
                   Checkout unavailable
                 </button>
               )}
               <Link
                 href="/products"
-                className="mt-3 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#b7c891] bg-white px-5 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                className="mt-3 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#9fc5e8] bg-white px-5 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
               >
                 Continue shopping
                 <ArrowRight className="h-4 w-4" />

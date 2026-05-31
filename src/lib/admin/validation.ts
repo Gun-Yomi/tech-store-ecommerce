@@ -218,11 +218,47 @@ export const preferenceFormSchema = z.object({
   announcementEnabled: z.boolean().default(false),
   heroTitle: z.string().trim().min(1, "Hero title is required.").max(120),
   heroSubtitle: z.string().trim().min(1, "Hero subtitle is required.").max(500),
+  heroImageUrl: optionalUrlSchema,
   heroCtaText: z.string().trim().min(1, "Hero CTA text is required.").max(80),
   heroCtaLink: optionalUrlSchema.refine((value) => !!value, {
     message: "Hero CTA link is required.",
   }),
   homepageBannerText: optionalText,
+  featuredProductsTitle: z
+    .string()
+    .trim()
+    .min(1, "Featured products title is required.")
+    .max(120),
+  featuredProductsDescription: z
+    .string()
+    .trim()
+    .min(1, "Featured products description is required.")
+    .max(500),
+  newArrivalsTitle: z
+    .string()
+    .trim()
+    .min(1, "New arrivals title is required.")
+    .max(120),
+  newArrivalsDescription: z
+    .string()
+    .trim()
+    .min(1, "New arrivals description is required.")
+    .max(500),
+  bestSellersTitle: z
+    .string()
+    .trim()
+    .min(1, "Best sellers title is required.")
+    .max(120),
+  bestSellersDescription: z
+    .string()
+    .trim()
+    .min(1, "Best sellers description is required.")
+    .max(500),
+  footerDescription: z
+    .string()
+    .trim()
+    .min(1, "Footer description is required.")
+    .max(500),
   featuredCategorySlugs: z.string().trim().optional().default("").transform(splitList),
   contactEmail: z
     .string()
@@ -238,7 +274,7 @@ export const preferenceFormSchema = z.object({
   themeAccentColor: z
     .string()
     .trim()
-    .regex(/^#[0-9a-fA-F]{6}$/, "Use a hex color like #6e8f3d."),
+    .regex(/^#[0-9a-fA-F]{6}$/, "Use a hex color like #4f9ed8."),
 });
 
 export const userAdminUpdateSchema = z.object({

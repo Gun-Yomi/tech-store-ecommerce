@@ -70,13 +70,13 @@ export function RegisterForm() {
   return (
     <form action={formAction} className="space-y-5">
       <div>
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Customer account
         </p>
-        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#253326]">
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#1f2a44]">
           Create your account
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Enter your email, send a 6-digit code, then paste that code here to
           create your secure customer profile.
         </p>
@@ -106,7 +106,7 @@ export function RegisterForm() {
           type="button"
           onClick={handleSendCode}
           disabled={isSendingCode}
-          className="h-12 rounded-lg border border-[#9fb56d] bg-[#eef5db] px-5 text-sm font-black text-[#384d2c] transition hover:border-[#6e8f3d] hover:bg-[#e1edc0] disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-12 rounded-lg border border-[#9fb56d] bg-[#eef5db] px-5 text-sm font-black text-[#384d2c] transition hover:border-[#4f9ed8] hover:bg-[#dbeeff] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSendingCode ? "Sending..." : "Email code"}
         </button>
@@ -154,9 +154,9 @@ export function RegisterForm() {
         Create account
       </AuthSubmitButton>
 
-      <p className="text-center text-sm font-medium text-[#60705d]">
+      <p className="text-center text-sm font-medium text-[#5f6f85]">
         Already have an account?{" "}
-        <Link href="/login" className="font-black text-[#5f7d33] hover:text-[#435d2d]">
+        <Link href="/login" className="font-black text-[#2f7fb3] hover:text-[#2f5f8f]">
           Sign in
         </Link>
       </p>

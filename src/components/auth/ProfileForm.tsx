@@ -23,15 +23,15 @@ export function ProfileForm({ user }: ProfileFormProps) {
   );
 
   return (
-    <form action={formAction} className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
+    <form action={formAction} className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
       <div>
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Profile
         </p>
-        <h2 className="mt-3 text-2xl font-black tracking-normal text-[#253326]">
+        <h2 className="mt-3 text-2xl font-black tracking-normal text-[#1f2a44]">
           Account details
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Update your customer profile details. Email changes stay reserved for
           a verified email-change workflow.
         </p>
@@ -67,8 +67,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
           error={state.fieldErrors?.avatarUrl?.[0]}
           placeholder="https://example.com/avatar.jpg"
         />
-        <div className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-4 py-3 text-sm font-semibold text-[#60705d]">
-          Email: <span className="font-black text-[#253326]">{user.email}</span>
+        <div className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] px-4 py-3 text-sm font-semibold text-[#5f6f85]">
+          Email: <span className="font-black text-[#1f2a44]">{user.email}</span>
         </div>
         <AuthSubmitButton pendingLabel="Saving profile...">
           Save profile

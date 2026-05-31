@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
   <title id="title">Tablet product placeholder</title>
-  <desc id="desc">Premium green technology placeholder for tablets.</desc>
-  <rect width="1200" height="900" fill="#f4f7ed"/>
-  <circle cx="215" cy="185" r="230" fill="#c9df93"/>
-  <circle cx="1000" cy="720" r="260" fill="#dfecc3"/>
-  <rect x="290" y="110" width="620" height="680" rx="54" fill="#253326"/>
-  <rect x="340" y="164" width="520" height="572" rx="28" fill="#6e8f3d"/>
-  <rect x="745" y="222" width="26" height="406" rx="13" fill="#d8e978"/>
-  <circle cx="600" cy="754" r="16" fill="#d8e978"/>
+  <desc id="desc">Premium blue technology placeholder for tablets.</desc>
+  <rect width="1200" height="900" fill="#f5f9ff"/>
+  <circle cx="215" cy="185" r="230" fill="#c7e8ff"/>
+  <circle cx="1000" cy="720" r="260" fill="#d7eaff"/>
+  <rect x="290" y="110" width="620" height="680" rx="54" fill="#1f2a44"/>
+  <rect x="340" y="164" width="520" height="572" rx="28" fill="#4f9ed8"/>
+  <rect x="745" y="222" width="26" height="406" rx="13" fill="#e5f2ff"/>
+  <circle cx="600" cy="754" r="16" fill="#e5f2ff"/>
 </svg>

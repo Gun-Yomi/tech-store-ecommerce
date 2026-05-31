@@ -69,10 +69,10 @@ export function ProductForm({
         formError={state.formError}
       />
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-2">
           <label className="block">
-            <span className="text-sm font-black text-[#253326]" id="name-label">
+            <span className="text-sm font-black text-[#1f2a44]" id="name-label">
               Product name
             </span>
             <input
@@ -89,7 +89,7 @@ export function ProductForm({
                   setSlug(slugify(event.target.value));
                 }
               }}
-              className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
+              className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#8795a8] focus:border-[#4f9ed8]"
             />
             {fieldError(state, "name") ? (
               <p id="name-error" className="mt-2 text-xs font-bold text-[#9f2f28]">
@@ -99,7 +99,7 @@ export function ProductForm({
           </label>
 
           <label className="block">
-            <span className="text-sm font-black text-[#253326]" id="slug-label">
+            <span className="text-sm font-black text-[#1f2a44]" id="slug-label">
               Slug
             </span>
             <input
@@ -115,7 +115,7 @@ export function ProductForm({
                 setSlugEdited(true);
                 setSlug(slugify(event.target.value));
               }}
-              className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
+              className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#8795a8] focus:border-[#4f9ed8]"
             />
             {fieldError(state, "slug") ? (
               <p id="slug-error" className="mt-2 text-xs font-bold text-[#9f2f28]">
@@ -173,7 +173,7 @@ export function ProductForm({
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5">
           <AdminTextarea
             label="Short description"
@@ -198,7 +198,7 @@ export function ProductForm({
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-3">
           <AdminTextInput
             label="Price"
@@ -230,7 +230,7 @@ export function ProductForm({
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5">
           <AdminTextInput
             label="Featured image URL"
@@ -252,13 +252,13 @@ export function ProductForm({
             error={fieldError(state, "productImages")}
             placeholder="/catalog/placeholders/laptops.svg"
           />
-          <p className="-mt-2 text-xs font-bold text-[#60705d]">
+          <p className="-mt-2 text-xs font-bold text-[#5f6f85]">
             TODO Phase 6+: replace URL fields with cloud-backed image storage.
           </p>
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-2">
           <AdminTextarea
             label="Tags"
@@ -297,7 +297,7 @@ export function ProductForm({
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-3 md:grid-cols-3">
           <AdminCheckbox
             label="Featured product"
@@ -335,7 +335,7 @@ export function ProductForm({
         </AdminSubmitButton>
         <Link
           href="/admin/products"
-          className="inline-flex h-11 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-5 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+          className="inline-flex h-11 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-5 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
         >
           Cancel
         </Link>

@@ -37,23 +37,23 @@ export default async function CheckoutPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee]">
-        <section className="border-b border-[#d7dfbd] bg-white py-14 sm:py-16">
+      <main className="bg-[#f5f9ff]">
+        <section className="border-b border-[#cfe0f2] bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Link
               href="/cart"
-              className="inline-flex items-center gap-2 text-sm font-black text-[#5f7d33] hover:text-[#435d2d]"
+              className="inline-flex items-center gap-2 text-sm font-black text-[#2f7fb3] hover:text-[#2f5f8f]"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to cart
             </Link>
-            <p className="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               Checkout
             </p>
-            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326] sm:text-5xl">
+            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#1f2a44] sm:text-5xl">
               Manual order checkout
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5f6f85]">
               Submit your cart for manual confirmation. Payment gateway
               integration is reserved for a later phase.
             </p>
@@ -65,24 +65,24 @@ export default async function CheckoutPage() {
             {items.length > 0 ? (
               <CheckoutForm user={user} disabled={blockingItems.length > 0} />
             ) : (
-              <div className="rounded-lg border border-dashed border-[#b7c891] bg-white p-8 text-center shadow-sm">
-                <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+              <div className="rounded-lg border border-dashed border-[#9fc5e8] bg-white p-8 text-center shadow-sm">
+                <h2 className="text-2xl font-black tracking-normal text-[#1f2a44]">
                   Your cart is empty
                 </h2>
-                <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#60705d]">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#5f6f85]">
                   Add active products before starting checkout.
                 </p>
                 <Link
                   href="/products"
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+                  className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
                 >
                   Browse products
                 </Link>
               </div>
             )}
 
-            <aside className="h-fit rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <aside className="h-fit rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
                 Order summary
               </p>
               <div className="mt-5 space-y-4">
@@ -92,7 +92,7 @@ export default async function CheckoutPage() {
 
                   return (
                     <article key={item.id} className="flex gap-3">
-                      <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-[#edf1df]">
+                      <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg bg-[#edf6ff]">
                         <Image
                           src={item.product.featuredImage}
                           alt={item.product.name}
@@ -103,10 +103,10 @@ export default async function CheckoutPage() {
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-black text-[#253326]">
+                        <p className="font-black text-[#1f2a44]">
                           {item.product.name}
                         </p>
-                        <p className="mt-1 text-xs font-bold text-[#60705d]">
+                        <p className="mt-1 text-xs font-bold text-[#5f6f85]">
                           Qty {item.quantity} / {formatCurrency(unitPrice)}
                         </p>
                         {blocked ? (
@@ -116,29 +116,29 @@ export default async function CheckoutPage() {
                           </p>
                         ) : null}
                       </div>
-                      <p className="text-sm font-black text-[#253326]">
+                      <p className="text-sm font-black text-[#1f2a44]">
                         {formatCurrency(unitPrice * item.quantity)}
                       </p>
                     </article>
                   );
                 })}
               </div>
-              <div className="mt-6 space-y-3 border-t border-[#edf1df] pt-5 text-sm font-bold text-[#60705d]">
+              <div className="mt-6 space-y-3 border-t border-[#edf6ff] pt-5 text-sm font-bold text-[#5f6f85]">
                 <div className="flex justify-between gap-4">
                   <span>Subtotal</span>
-                  <span className="text-[#253326]">{formatCurrency(subtotal)}</span>
+                  <span className="text-[#1f2a44]">{formatCurrency(subtotal)}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span>Shipping</span>
-                  <span className="text-[#253326]">Manual quote later</span>
+                  <span className="text-[#1f2a44]">Manual quote later</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span>Tax</span>
-                  <span className="text-[#253326]">Manual review</span>
+                  <span className="text-[#1f2a44]">Manual review</span>
                 </div>
-                <div className="flex justify-between gap-4 border-t border-[#edf1df] pt-3 text-base">
+                <div className="flex justify-between gap-4 border-t border-[#edf6ff] pt-3 text-base">
                   <span>Estimated total</span>
-                  <span className="text-[#253326]">{formatCurrency(subtotal)}</span>
+                  <span className="text-[#1f2a44]">{formatCurrency(subtotal)}</span>
                 </div>
               </div>
             </aside>

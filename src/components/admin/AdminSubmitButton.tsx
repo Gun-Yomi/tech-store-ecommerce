@@ -12,7 +12,7 @@ type AdminSubmitButtonProps = {
 export function AdminSubmitButton({
   children,
   pendingLabel,
-  className = "inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]",
+  className = "inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]",
   disabled = false,
 }: AdminSubmitButtonProps) {
   const { pending } = useFormStatus();

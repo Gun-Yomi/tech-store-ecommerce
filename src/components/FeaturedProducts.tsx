@@ -20,18 +20,18 @@ export function FeaturedProducts({
   alternate = false,
 }: FeaturedProductsProps) {
   return (
-    <section id={id} className={`${alternate ? "bg-white" : "bg-[#f5f7ee]"} py-16 sm:py-20`}>
+    <section id={id} className={`${alternate ? "bg-white" : "bg-[#f5f9ff]"} py-16 sm:py-20`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               {eyebrow}
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal text-[#253326] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-[#1f2a44] sm:text-4xl">
               {title}
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-6 text-[#60705d]">
+          <p className="max-w-xl text-sm leading-6 text-[#5f6f85]">
             {description}
           </p>
         </div>
@@ -45,7 +45,7 @@ export function FeaturedProducts({
         <div className="mt-8 text-center">
           <Link
             href="/products"
-            className="inline-flex h-12 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-6 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+            className="inline-flex h-12 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-6 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
           >
             View full catalog
           </Link>

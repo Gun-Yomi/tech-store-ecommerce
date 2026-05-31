@@ -29,11 +29,11 @@ export function BrandForm({ brand }: BrandFormProps) {
   const [slugEdited, setSlugEdited] = useState(Boolean(initialSlug));
 
   return (
-    <form action={formAction} className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+    <form action={formAction} className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
       <AdminActionMessage formError={state.formError} success={state.successMessage} />
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <label className="block">
-          <span className="text-sm font-black text-[#253326]">Brand name</span>
+          <span className="text-sm font-black text-[#1f2a44]">Brand name</span>
           <input
             name="name"
             type="text"
@@ -44,7 +44,7 @@ export function BrandForm({ brand }: BrandFormProps) {
                 setSlug(slugify(event.target.value));
               }
             }}
-            className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition focus:border-[#6e8f3d]"
+            className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition focus:border-[#4f9ed8]"
           />
           {fieldError(state, "name") ? (
             <p className="mt-2 text-xs font-bold text-[#9f2f28]">
@@ -53,7 +53,7 @@ export function BrandForm({ brand }: BrandFormProps) {
           ) : null}
         </label>
         <label className="block">
-          <span className="text-sm font-black text-[#253326]">Slug</span>
+          <span className="text-sm font-black text-[#1f2a44]">Slug</span>
           <input
             name="slug"
             type="text"
@@ -63,7 +63,7 @@ export function BrandForm({ brand }: BrandFormProps) {
               setSlugEdited(true);
               setSlug(slugify(event.target.value));
             }}
-            className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition focus:border-[#6e8f3d]"
+            className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition focus:border-[#4f9ed8]"
           />
           {fieldError(state, "slug") ? (
             <p className="mt-2 text-xs font-bold text-[#9f2f28]">

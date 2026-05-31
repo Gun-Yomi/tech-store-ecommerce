@@ -27,7 +27,7 @@ export function AdminActionMessage({
   return (
     <div className="space-y-3">
       {successMessage ? (
-        <div className="rounded-lg border border-[#b7c891] bg-[#eef4df] px-4 py-3 text-sm font-bold text-[#3f5b25]">
+        <div className="rounded-lg border border-[#9fc5e8] bg-[#eaf6ff] px-4 py-3 text-sm font-bold text-[#245a8d]">
           {successMessage}
         </div>
       ) : null}

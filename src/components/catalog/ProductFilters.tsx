@@ -31,7 +31,7 @@ export function ProductFilters({
   return (
     <form
       action={basePath}
-      className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] p-4 shadow-sm sm:p-5"
+      className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] p-4 shadow-sm sm:p-5"
     >
       <div className="grid gap-4 lg:grid-cols-6">
         <div className="lg:col-span-2">
@@ -40,13 +40,13 @@ export function ProductFilters({
 
         {!hideCategoryFilter ? (
           <label className="block">
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
               Category
             </span>
             <select
               name="category"
               defaultValue={filters.category ?? ""}
-              className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-semibold text-[#253326] outline-none transition hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+              className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-semibold text-[#1f2a44] outline-none transition hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
             >
               <option value="">All categories</option>
               {categories.map((category) => (
@@ -60,13 +60,13 @@ export function ProductFilters({
 
         {!hideBrandFilter ? (
           <label className="block">
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
               Brand
             </span>
             <select
               name="brand"
               defaultValue={filters.brand ?? ""}
-              className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-semibold text-[#253326] outline-none transition hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+              className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-semibold text-[#1f2a44] outline-none transition hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
             >
               <option value="">All brands</option>
               {brands.map((brand) => (
@@ -79,7 +79,7 @@ export function ProductFilters({
         ) : null}
 
         <label className="block">
-          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
             Min price
           </span>
           <input
@@ -88,12 +88,12 @@ export function ProductFilters({
             min="0"
             defaultValue={centsToDollars(filters.minPrice)}
             placeholder="$0"
-            className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#75806f] hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+            className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#758398] hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
           />
         </label>
 
         <label className="block">
-          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
             Max price
           </span>
           <input
@@ -102,7 +102,7 @@ export function ProductFilters({
             min="0"
             defaultValue={centsToDollars(filters.maxPrice)}
             placeholder="$3000"
-            className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#75806f] hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+            className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#758398] hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
           />
         </label>
       </div>
@@ -110,25 +110,25 @@ export function ProductFilters({
       <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
         <ProductSort defaultValue={filters.sort} />
         <div className="flex flex-wrap items-center gap-3">
-          <label className="inline-flex h-11 items-center gap-2 rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-black text-[#253326]">
+          <label className="inline-flex h-11 items-center gap-2 rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-black text-[#1f2a44]">
             <input
               type="checkbox"
               name="inStock"
               value="true"
               defaultChecked={filters.inStock}
-              className="h-4 w-4 accent-[#6e8f3d]"
+              className="h-4 w-4 accent-[#4f9ed8]"
             />
             In stock only
           </label>
           <button
             type="submit"
-            className="inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Apply filters
           </button>
           <Link
             href={basePath}
-            className="inline-flex h-11 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-5 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+            className="inline-flex h-11 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-5 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
           >
             Clear
           </Link>

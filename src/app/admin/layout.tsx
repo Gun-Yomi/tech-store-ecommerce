@@ -47,9 +47,9 @@ export default async function AdminLayout({
   ]);
 
   return (
-    <div className="min-h-screen bg-[#f5f7ee] text-[#253326]">
+    <div className="min-h-screen bg-[#f5f9ff] text-[#1f2a44]">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-[280px_1fr]">
-        <aside className="border-b border-[#d7dfbd] bg-[#253326] text-white lg:border-b-0 lg:border-r lg:border-[#344554]">
+        <aside className="border-b border-[#cfe0f2] bg-[#1f2a44] text-white lg:border-b-0 lg:border-r lg:border-[#334155]">
           <div className="flex items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:block lg:px-6 lg:py-7">
             <Link href="/admin" className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-lg border border-white/15 bg-white/10">
@@ -59,7 +59,7 @@ export default async function AdminLayout({
                 <span className="block text-lg font-black leading-none">
                   {preferences.siteName}
                 </span>
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#d8e978]">
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#c7e8ff]">
                   Admin
                 </span>
               </span>
@@ -81,9 +81,9 @@ export default async function AdminLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="inline-flex h-11 shrink-0 items-center gap-3 rounded-lg px-3 text-sm font-black text-[#edf4de] transition hover:bg-white/10 hover:text-white lg:w-full"
+                  className="inline-flex h-11 shrink-0 items-center gap-3 rounded-lg px-3 text-sm font-black text-[#e8f4ff] transition hover:bg-white/10 hover:text-white lg:w-full"
                 >
-                  <Icon className="h-4 w-4 text-[#d8e978]" />
+                  <Icon className="h-4 w-4 text-[#c7e8ff]" />
                   {item.label}
                 </Link>
               );
@@ -92,11 +92,11 @@ export default async function AdminLayout({
 
           <div className="hidden px-6 pb-7 pt-8 lg:block">
             <div className="rounded-lg border border-white/15 bg-white/10 p-4">
-              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#d8e978]">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#c7e8ff]">
                 Signed in
               </p>
               <p className="mt-2 text-sm font-black text-white">{user.name}</p>
-              <p className="mt-1 text-xs font-semibold text-[#cfe6b6]">
+              <p className="mt-1 text-xs font-semibold text-[#d7eaff]">
                 {user.email}
               </p>
               <div className="mt-4">
@@ -107,19 +107,19 @@ export default async function AdminLayout({
         </aside>
 
         <div className="min-w-0">
-          <header className="border-b border-[#d7dfbd] bg-white">
+          <header className="border-b border-[#cfe0f2] bg-white">
             <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
                   Admin panel
                 </p>
-                <p className="mt-1 text-sm font-semibold text-[#60705d]">
+                <p className="mt-1 text-sm font-semibold text-[#5f6f85]">
                   Product, catalog, preference, and user controls
                 </p>
               </div>
               <div className="hidden items-center gap-3 text-right sm:block">
-                <p className="text-sm font-black text-[#253326]">{user.name}</p>
-                <p className="text-xs font-bold text-[#60705d]">{user.role}</p>
+                <p className="text-sm font-black text-[#1f2a44]">{user.name}</p>
+                <p className="text-xs font-bold text-[#5f6f85]">{user.role}</p>
               </div>
             </div>
           </header>

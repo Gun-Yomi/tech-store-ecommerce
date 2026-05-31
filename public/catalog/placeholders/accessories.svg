@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
   <title id="title">Accessory product placeholder</title>
-  <desc id="desc">Premium green technology placeholder for accessories.</desc>
-  <rect width="1200" height="900" fill="#f4f7ed"/>
-  <circle cx="210" cy="705" r="260" fill="#dfecc3"/>
-  <circle cx="1010" cy="175" r="230" fill="#c9df93"/>
-  <rect x="258" y="342" width="330" height="245" rx="46" fill="#253326"/>
-  <rect x="652" y="270" width="250" height="380" rx="60" fill="#344554"/>
-  <circle cx="423" cy="464" r="64" fill="#6e8f3d"/>
-  <circle cx="777" cy="390" r="58" fill="#d8e978"/>
-  <rect x="715" y="515" width="124" height="44" rx="22" fill="#6e8f3d"/>
+  <desc id="desc">Premium blue technology placeholder for accessories.</desc>
+  <rect width="1200" height="900" fill="#f5f9ff"/>
+  <circle cx="210" cy="705" r="260" fill="#d7eaff"/>
+  <circle cx="1010" cy="175" r="230" fill="#c7e8ff"/>
+  <rect x="258" y="342" width="330" height="245" rx="46" fill="#1f2a44"/>
+  <rect x="652" y="270" width="250" height="380" rx="60" fill="#334155"/>
+  <circle cx="423" cy="464" r="64" fill="#4f9ed8"/>
+  <circle cx="777" cy="390" r="58" fill="#e5f2ff"/>
+  <rect x="715" y="515" width="124" height="44" rx="22" fill="#4f9ed8"/>
 </svg>

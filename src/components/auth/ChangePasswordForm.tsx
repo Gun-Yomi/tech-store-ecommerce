@@ -14,15 +14,15 @@ export function ChangePasswordForm() {
   );
 
   return (
-    <form action={formAction} className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
+    <form action={formAction} className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
       <div>
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Security
         </p>
-        <h2 className="mt-3 text-2xl font-black tracking-normal text-[#253326]">
+        <h2 className="mt-3 text-2xl font-black tracking-normal text-[#1f2a44]">
           Change password
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Choose a new password. Other active sessions will be signed out.
         </p>
       </div>

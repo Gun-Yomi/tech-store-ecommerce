@@ -39,7 +39,7 @@ export function WishlistItemControls({
           <SubmitButton
             pendingLabel="Moving..."
             disabled={outOfStock}
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-[#6e8f3d] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="inline-flex h-10 items-center justify-center rounded-lg bg-[#4f9ed8] px-4 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Move to cart
           </SubmitButton>

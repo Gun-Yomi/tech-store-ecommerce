@@ -41,7 +41,7 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
         formError={state.formError}
         success={state.successMessage}
       />
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-2">
           <AdminTextInput
             label="Site name"
@@ -80,7 +80,7 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5">
           <AdminCheckbox
             label="Announcement enabled"
@@ -114,7 +114,7 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5">
           <AdminTextInput
             label="Hero title"
@@ -134,6 +134,16 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
               preferences.heroSubtitle,
             )}
             error={fieldError(state, "heroSubtitle")}
+          />
+          <AdminTextInput
+            label="Hero background image URL"
+            name="heroImageUrl"
+            defaultValue={stateValue(
+              state,
+              "heroImageUrl",
+              preferences.heroImageUrl,
+            )}
+            error={fieldError(state, "heroImageUrl")}
           />
           <div className="grid gap-5 lg:grid-cols-2">
             <AdminTextInput
@@ -162,7 +172,87 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
         </div>
       </section>
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
+        <div className="grid gap-5">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <AdminTextInput
+              label="Featured products title"
+              name="featuredProductsTitle"
+              required
+              defaultValue={stateValue(
+                state,
+                "featuredProductsTitle",
+                preferences.featuredProductsTitle,
+              )}
+              error={fieldError(state, "featuredProductsTitle")}
+            />
+            <AdminTextarea
+              label="Featured products description"
+              name="featuredProductsDescription"
+              rows={3}
+              required
+              defaultValue={stateValue(
+                state,
+                "featuredProductsDescription",
+                preferences.featuredProductsDescription,
+              )}
+              error={fieldError(state, "featuredProductsDescription")}
+            />
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <AdminTextInput
+              label="New arrivals title"
+              name="newArrivalsTitle"
+              required
+              defaultValue={stateValue(
+                state,
+                "newArrivalsTitle",
+                preferences.newArrivalsTitle,
+              )}
+              error={fieldError(state, "newArrivalsTitle")}
+            />
+            <AdminTextarea
+              label="New arrivals description"
+              name="newArrivalsDescription"
+              rows={3}
+              required
+              defaultValue={stateValue(
+                state,
+                "newArrivalsDescription",
+                preferences.newArrivalsDescription,
+              )}
+              error={fieldError(state, "newArrivalsDescription")}
+            />
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <AdminTextInput
+              label="Best sellers title"
+              name="bestSellersTitle"
+              required
+              defaultValue={stateValue(
+                state,
+                "bestSellersTitle",
+                preferences.bestSellersTitle,
+              )}
+              error={fieldError(state, "bestSellersTitle")}
+            />
+            <AdminTextarea
+              label="Best sellers description"
+              name="bestSellersDescription"
+              rows={3}
+              required
+              defaultValue={stateValue(
+                state,
+                "bestSellersDescription",
+                preferences.bestSellersDescription,
+              )}
+              error={fieldError(state, "bestSellersDescription")}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
         <div className="grid gap-5 lg:grid-cols-2">
           <AdminTextInput
             label="Contact email"
@@ -185,6 +275,18 @@ export function PreferenceForm({ preferences }: PreferenceFormProps) {
               preferences.whatsappNumber,
             )}
             error={fieldError(state, "whatsappNumber")}
+          />
+          <AdminTextarea
+            label="Footer description"
+            name="footerDescription"
+            rows={4}
+            required
+            defaultValue={stateValue(
+              state,
+              "footerDescription",
+              preferences.footerDescription,
+            )}
+            error={fieldError(state, "footerDescription")}
           />
           <AdminTextarea
             label="Featured category slugs"

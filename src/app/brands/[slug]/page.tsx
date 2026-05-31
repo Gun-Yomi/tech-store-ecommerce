@@ -59,22 +59,22 @@ export default async function BrandDetailPage({
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee]">
-        <section className="border-b border-[#d7dfbd] bg-white py-14 sm:py-16">
+      <main className="bg-[#f5f9ff]">
+        <section className="border-b border-[#cfe0f2] bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               Brand
             </p>
             <div className="mt-3 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
               <div>
-                <h1 className="text-4xl font-black tracking-normal text-[#253326] sm:text-5xl">
+                <h1 className="text-4xl font-black tracking-normal text-[#1f2a44] sm:text-5xl">
                   {brand.name}
                 </h1>
-                <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5f6f85]">
                   {brand.description}
                 </p>
               </div>
-              <div className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-5 py-4 text-sm font-black text-[#344554]">
+              <div className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] px-5 py-4 text-sm font-black text-[#334155]">
                 {products.length} matching products
               </div>
             </div>

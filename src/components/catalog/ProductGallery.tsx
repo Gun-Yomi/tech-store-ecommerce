@@ -22,7 +22,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#d7dfbd] bg-[#edf1df] shadow-sm">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#cfe0f2] bg-[#edf6ff] shadow-sm">
         <Image
           src={product.featuredImage}
           alt={product.name}
@@ -37,7 +37,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
         {images.slice(0, 3).map((image) => (
           <div
             key={image.id}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#d7dfbd] bg-white"
+            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-[#cfe0f2] bg-white"
           >
             <Image
               src={image.url}

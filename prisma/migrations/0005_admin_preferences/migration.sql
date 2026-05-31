@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS "SitePreference" (
     "contactPhone" TEXT NOT NULL DEFAULT '',
     "whatsappNumber" TEXT NOT NULL DEFAULT '',
     "storeAddress" TEXT NOT NULL DEFAULT '',
-    "themeAccentColor" TEXT NOT NULL DEFAULT '#6e8f3d',
+    "themeAccentColor" TEXT NOT NULL DEFAULT '#4f9ed8',
     "featuredCategorySlugs" TEXT NOT NULL DEFAULT '[]',
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL

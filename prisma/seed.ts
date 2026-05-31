@@ -44,12 +44,165 @@ const catalogImages = {
   repairs: "/catalog/placeholders/repairs-parts.svg",
 };
 
+function productPhoto(id: string) {
+  return `https://images.unsplash.com/${id}?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80`;
+}
+
+const categoryPhotos = {
+  phones: productPhoto("photo-1511707171634-5f897ff02aa9"),
+  laptops: productPhoto("photo-1496181133206-80ce9b88a853"),
+  desktops: productPhoto("photo-1593640408182-31c70c8268f5"),
+  cameras: productPhoto("photo-1516035069371-29a1b244cc32"),
+  tablets: productPhoto("photo-1544244015-0df4b3ffc6b0"),
+  gaming: productPhoto("photo-1598550476439-6847785fcea6"),
+  accessories: productPhoto("photo-1606220945770-b5b6c2c55bf1"),
+  smart: productPhoto("photo-1558002038-1055907df827"),
+  networking: productPhoto("photo-1544197150-b99a580bb7a8"),
+  components: productPhoto("photo-1518770660439-4636190af475"),
+  repairs: productPhoto("photo-1581092160562-40aa08e78837"),
+};
+
+const productImageSets: Partial<Record<string, string[]>> = {
+  "apex-terra-x1-5g": [
+    productPhoto("photo-1598327105666-5b89351aff97"),
+    productPhoto("photo-1511707171634-5f897ff02aa9"),
+    productPhoto("photo-1601784551446-20c9e07cdbdb"),
+  ],
+  "novaphone-pro-5g": [
+    productPhoto("photo-1511707171634-5f897ff02aa9"),
+    productPhoto("photo-1592750475338-74b7b21085ab"),
+    productPhoto("photo-1556656793-08538906a9f8"),
+  ],
+  "pocketedge-fold": [
+    productPhoto("photo-1601784551446-20c9e07cdbdb"),
+    productPhoto("photo-1544244015-0df4b3ffc6b0"),
+    productPhoto("photo-1561154464-82e9adf32764"),
+  ],
+  "apex-terra-mini": [
+    productPhoto("photo-1585060544812-6b45742d762f"),
+    productPhoto("photo-1511707171634-5f897ff02aa9"),
+    productPhoto("photo-1606220945770-b5b6c2c55bf1"),
+  ],
+  "pixelsmith-note-7": [
+    productPhoto("photo-1592750475338-74b7b21085ab"),
+    productPhoto("photo-1544244015-0df4b3ffc6b0"),
+    productPhoto("photo-1561154464-82e9adf32764"),
+  ],
+  "northstar-field-5g": [
+    productPhoto("photo-1556656793-08538906a9f8"),
+    productPhoto("photo-1581092160562-40aa08e78837"),
+    productPhoto("photo-1518770660439-4636190af475"),
+  ],
+  "voltbook-air-14": [
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+    productPhoto("photo-1517336714731-489689fd1ca8"),
+    productPhoto("photo-1525547719571-a2d4ac8945e2"),
+  ],
+  "creatorbook-oled-16": [
+    productPhoto("photo-1541807084-5c52b6b3adef"),
+    productPhoto("photo-1525547719571-a2d4ac8945e2"),
+    productPhoto("photo-1516035069371-29a1b244cc32"),
+  ],
+  "trailbook-pro-13": [
+    productPhoto("photo-1484788984921-03950022c9ef"),
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+    productPhoto("photo-1544244015-0df4b3ffc6b0"),
+  ],
+  "voltbook-studio-15": [
+    productPhoto("photo-1525547719571-a2d4ac8945e2"),
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+    productPhoto("photo-1593640408182-31c70c8268f5"),
+  ],
+  "titan-mini-workstation": [
+    productPhoto("photo-1593640408182-31c70c8268f5"),
+    productPhoto("photo-1587202372775-e229f172b9d7"),
+    productPhoto("photo-1518770660439-4636190af475"),
+  ],
+  "prism-gaming-tower": [
+    productPhoto("photo-1587202372775-e229f172b9d7"),
+    productPhoto("photo-1598550476439-6847785fcea6"),
+    productPhoto("photo-1606144042614-b2417e99c4e3"),
+  ],
+  "corehaus-studio-cube": [
+    productPhoto("photo-1593640408182-31c70c8268f5"),
+    productPhoto("photo-1516035069371-29a1b244cc32"),
+    productPhoto("photo-1591488320449-011701bb6704"),
+  ],
+  "captureone-mirrorless-kit": [
+    productPhoto("photo-1516035069371-29a1b244cc32"),
+    productPhoto("photo-1502920917128-1aa500764cbd"),
+    productPhoto("photo-1526170375885-4d8ecf77b99f"),
+  ],
+  "streampro-4k-creator-cam": [
+    productPhoto("photo-1502920917128-1aa500764cbd"),
+    productPhoto("photo-1516035069371-29a1b244cc32"),
+    productPhoto("photo-1526170375885-4d8ecf77b99f"),
+  ],
+  "fieldframe-action-8k": [
+    productPhoto("photo-1526170375885-4d8ecf77b99f"),
+    productPhoto("photo-1502920917128-1aa500764cbd"),
+    productPhoto("photo-1581092160562-40aa08e78837"),
+  ],
+  "apex-slate-11-tablet": [
+    productPhoto("photo-1544244015-0df4b3ffc6b0"),
+    productPhoto("photo-1561154464-82e9adf32764"),
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+  ],
+  "arcpods-anc": [
+    productPhoto("photo-1606220945770-b5b6c2c55bf1"),
+    productPhoto("photo-1583394838336-acd977736f90"),
+    productPhoto("photo-1592750475338-74b7b21085ab"),
+  ],
+  "quantumdock-12-in-1": [
+    productPhoto("photo-1525547719571-a2d4ac8945e2"),
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+    productPhoto("photo-1544197150-b99a580bb7a8"),
+  ],
+  "mechlite-wireless-keyboard": [
+    productPhoto("photo-1587829741301-dc798b83add3"),
+    productPhoto("photo-1496181133206-80ce9b88a853"),
+    productPhoto("photo-1598550476439-6847785fcea6"),
+  ],
+  "forgebook-rtx-15": [
+    productPhoto("photo-1598550476439-6847785fcea6"),
+    productPhoto("photo-1587202372775-e229f172b9d7"),
+    productPhoto("photo-1606144042614-b2417e99c4e3"),
+  ],
+  "pulsepad-pro-controller": [
+    productPhoto("photo-1606144042614-b2417e99c4e3"),
+    productPhoto("photo-1598550476439-6847785fcea6"),
+    productPhoto("photo-1587202372775-e229f172b9d7"),
+  ],
+  "meshly-home-mesh-6e": [
+    productPhoto("photo-1544197150-b99a580bb7a8"),
+    productPhoto("photo-1558002038-1055907df827"),
+    productPhoto("photo-1518770660439-4636190af475"),
+  ],
+  "meshly-sense-hub": [
+    productPhoto("photo-1558002038-1055907df827"),
+    productPhoto("photo-1544197150-b99a580bb7a8"),
+    productPhoto("photo-1561154464-82e9adf32764"),
+  ],
+  "portline-precision-repair-kit": [
+    productPhoto("photo-1581092160562-40aa08e78837"),
+    productPhoto("photo-1518770660439-4636190af475"),
+    productPhoto("photo-1591488320449-011701bb6704"),
+  ],
+  "corehaus-nvme-pro-2tb": [
+    productPhoto("photo-1591488320449-011701bb6704"),
+    productPhoto("photo-1518770660439-4636190af475"),
+    productPhoto("photo-1587202372775-e229f172b9d7"),
+  ],
+  "draft-lab-prototype-phone": [productPhoto("photo-1511707171634-5f897ff02aa9")],
+  "archived-desk-dock": [productPhoto("photo-1525547719571-a2d4ac8945e2")],
+};
+
 const categories = [
   {
     name: "Phones",
     slug: "phones",
     description: "Flagship phones, foldables, and 5G daily drivers.",
-    image: catalogImages.phones,
+    image: categoryPhotos.phones,
     icon: "Smartphone",
     isFeatured: true,
     sortOrder: 10,
@@ -58,7 +211,7 @@ const categories = [
     name: "Laptops",
     slug: "laptops",
     description: "Portable power for work, gaming, and creative studios.",
-    image: catalogImages.laptops,
+    image: categoryPhotos.laptops,
     icon: "Laptop",
     isFeatured: true,
     sortOrder: 20,
@@ -67,7 +220,7 @@ const categories = [
     name: "Desktops",
     slug: "desktops",
     description: "Premium towers, compact workstations, and home setups.",
-    image: catalogImages.desktops,
+    image: categoryPhotos.desktops,
     icon: "Monitor",
     isFeatured: true,
     sortOrder: 30,
@@ -76,7 +229,7 @@ const categories = [
     name: "Cameras",
     slug: "cameras",
     description: "Creator kits, mirrorless bodies, and streaming cameras.",
-    image: catalogImages.cameras,
+    image: categoryPhotos.cameras,
     icon: "Camera",
     isFeatured: true,
     sortOrder: 40,
@@ -85,7 +238,7 @@ const categories = [
     name: "Tablets",
     slug: "tablets",
     description: "Pen-ready tablets for field work, sketching, and travel.",
-    image: catalogImages.tablets,
+    image: categoryPhotos.tablets,
     icon: "Tablet",
     isFeatured: false,
     sortOrder: 50,
@@ -94,7 +247,7 @@ const categories = [
     name: "Gaming",
     slug: "gaming",
     description: "High-refresh gear, immersive audio, and pro controls.",
-    image: catalogImages.gaming,
+    image: categoryPhotos.gaming,
     icon: "Gamepad2",
     isFeatured: true,
     sortOrder: 60,
@@ -103,7 +256,7 @@ const categories = [
     name: "Accessories",
     slug: "accessories",
     description: "Audio, docks, keyboards, chargers, and everyday upgrades.",
-    image: catalogImages.accessories,
+    image: categoryPhotos.accessories,
     icon: "Cable",
     isFeatured: true,
     sortOrder: 70,
@@ -112,7 +265,7 @@ const categories = [
     name: "Smart Gadgets",
     slug: "smart-gadgets",
     description: "Wearables and connected devices for modern homes.",
-    image: catalogImages.smart,
+    image: categoryPhotos.smart,
     icon: "Watch",
     isFeatured: false,
     sortOrder: 80,
@@ -121,7 +274,7 @@ const categories = [
     name: "Networking",
     slug: "networking",
     description: "Routers, mesh systems, switches, and secure connectivity.",
-    image: catalogImages.networking,
+    image: categoryPhotos.networking,
     icon: "Wifi",
     isFeatured: false,
     sortOrder: 90,
@@ -130,7 +283,7 @@ const categories = [
     name: "Components",
     slug: "components",
     description: "Memory, storage, GPUs, boards, and build essentials.",
-    image: catalogImages.components,
+    image: categoryPhotos.components,
     icon: "Cpu",
     isFeatured: false,
     sortOrder: 100,
@@ -139,7 +292,7 @@ const categories = [
     name: "Repairs / Parts",
     slug: "repairs-parts",
     description: "Replacement parts, toolkits, cables, and service-ready gear.",
-    image: catalogImages.repairs,
+    image: categoryPhotos.repairs,
     icon: "Wrench",
     isFeatured: false,
     sortOrder: 110,
@@ -976,6 +1129,8 @@ async function seedCatalog() {
   for (const product of products) {
     const categoryId = categoryIdBySlug.get(product.categorySlug);
     const brandId = brandIdBySlug.get(product.brandSlug);
+    const imageUrls = productImageSets[product.slug] ?? product.images;
+    const featuredImage = imageUrls[0] ?? product.featuredImage;
 
     if (!categoryId || !brandId) {
       throw new Error(`Missing catalog relation for ${product.slug}.`);
@@ -993,7 +1148,7 @@ async function seedCatalog() {
         price: product.price,
         salePrice: product.salePrice ?? null,
         stockQuantity: product.stockQuantity,
-        featuredImage: product.featuredImage,
+        featuredImage,
         tags: JSON.stringify(product.tags),
         specifications: JSON.stringify(product.specifications),
         warrantyInfo: product.warrantyInfo,
@@ -1013,7 +1168,7 @@ async function seedCatalog() {
         price: product.price,
         salePrice: product.salePrice ?? null,
         stockQuantity: product.stockQuantity,
-        featuredImage: product.featuredImage,
+        featuredImage,
         tags: JSON.stringify(product.tags),
         specifications: JSON.stringify(product.specifications),
         warrantyInfo: product.warrantyInfo,
@@ -1030,7 +1185,7 @@ async function seedCatalog() {
     });
 
     await prisma.productImage.createMany({
-      data: product.images.map((url, index) => ({
+      data: imageUrls.map((url, index) => ({
         productId: productRecord.id,
         url,
         altText: `${product.name} image ${index + 1}`,

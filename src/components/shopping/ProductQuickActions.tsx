@@ -39,7 +39,7 @@ export function ProductQuickActions({
             pendingLabel="..."
             ariaLabel={`Add ${productName} to wishlist`}
             title="Add to wishlist"
-            className="grid h-11 w-11 place-items-center rounded-lg border border-[#d7dfbd] bg-white text-[#344554] transition hover:border-[#8ea95c] hover:bg-[#edf4de]"
+            className="grid h-11 w-11 place-items-center rounded-lg border border-[#cfe0f2] bg-white text-[#334155] transition hover:border-[#76b7e5] hover:bg-[#e8f4ff]"
           >
             <Heart className="h-4 w-4" />
           </SubmitButton>
@@ -52,7 +52,7 @@ export function ProductQuickActions({
             disabled={outOfStock}
             ariaLabel={`Add ${productName} to cart`}
             title={outOfStock ? "Out of stock" : "Add to cart"}
-            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#6e8f3d] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#4f9ed8] px-4 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             <ShoppingBag className="h-4 w-4" />
             Add to cart

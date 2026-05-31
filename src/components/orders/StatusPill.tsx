@@ -11,7 +11,7 @@ function statusClass(status: string, tone: "order" | "payment") {
   }
 
   if (status === "COMPLETED" || status === "PAID") {
-    return "bg-[#eef4df] text-[#3f5b25]";
+    return "bg-[#eaf6ff] text-[#245a8d]";
   }
 
   if (status === "PROCESSING" || status === "SHIPPED" || status === "PENDING") {
@@ -22,7 +22,7 @@ function statusClass(status: string, tone: "order" | "payment") {
     return "bg-[#f1f1ef] text-[#5f6663]";
   }
 
-  return "bg-[#eef4df] text-[#3f5b25]";
+  return "bg-[#eaf6ff] text-[#245a8d]";
 }
 
 export function StatusPill({ status, tone = "order" }: StatusPillProps) {

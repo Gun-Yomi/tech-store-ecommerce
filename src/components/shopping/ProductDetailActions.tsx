@@ -45,7 +45,7 @@ export function ProductDetailActions({
   return (
     <div className="mt-5 space-y-4">
       <label className="block max-w-40">
-        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+        <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
           Quantity
         </span>
         <input
@@ -54,7 +54,7 @@ export function ProductDetailActions({
           max={Math.max(1, stockQuantity)}
           value={quantity}
           onChange={(event) => setQuantity(Math.max(1, Number(event.target.value) || 1))}
-          className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-black text-[#253326] outline-none transition hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+          className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-black text-[#1f2a44] outline-none transition hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
         />
       </label>
 
@@ -65,7 +65,7 @@ export function ProductDetailActions({
           <SubmitButton
             pendingLabel="Adding..."
             disabled={outOfStock}
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#6e8f3d] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#4f9ed8] px-4 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             <ShoppingBag className="h-4 w-4" />
             Add to cart
@@ -75,7 +75,7 @@ export function ProductDetailActions({
           <input type="hidden" name="productId" value={productId} />
           <SubmitButton
             pendingLabel="Saving..."
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
           >
             <Heart className="h-4 w-4" />
             Wishlist
@@ -86,7 +86,7 @@ export function ProductDetailActions({
           <input type="hidden" name="quantity" value={quantity} />
           <SubmitButton
             pendingLabel="Saving..."
-            className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+            className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
           >
             Save for later
           </SubmitButton>

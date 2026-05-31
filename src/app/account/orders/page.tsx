@@ -28,16 +28,16 @@ export default async function AccountOrdersPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee]">
-        <section className="border-b border-[#d7dfbd] bg-white py-14 sm:py-16">
+      <main className="bg-[#f5f9ff]">
+        <section className="border-b border-[#cfe0f2] bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               Account
             </p>
-            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326] sm:text-5xl">
+            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#1f2a44] sm:text-5xl">
               My orders
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5f6f85]">
               View submitted manual orders, payment status, and fulfillment
               progress.
             </p>
@@ -47,10 +47,10 @@ export default async function AccountOrdersPage() {
         <section className="py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {orders.length > 0 ? (
-              <div className="overflow-hidden rounded-lg border border-[#d7dfbd] bg-white shadow-sm">
+              <div className="overflow-hidden rounded-lg border border-[#cfe0f2] bg-white shadow-sm">
                 <div className="overflow-x-auto">
-                  <table className="min-w-full divide-y divide-[#edf1df] text-left">
-                    <thead className="bg-[#f7f9ef] text-xs font-black uppercase tracking-[0.14em] text-[#60705d]">
+                  <table className="min-w-full divide-y divide-[#edf6ff] text-left">
+                    <thead className="bg-[#f7fbff] text-xs font-black uppercase tracking-[0.14em] text-[#5f6f85]">
                       <tr>
                         <th className="px-4 py-3">Order</th>
                         <th className="px-4 py-3">Date</th>
@@ -60,18 +60,18 @@ export default async function AccountOrdersPage() {
                         <th className="px-4 py-3 text-right">Details</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#edf1df]">
+                    <tbody className="divide-y divide-[#edf6ff]">
                       {orders.map((order) => (
                         <tr key={order.id}>
                           <td className="px-4 py-4">
-                            <p className="font-black text-[#253326]">
+                            <p className="font-black text-[#1f2a44]">
                               {order.orderNumber}
                             </p>
-                            <p className="mt-1 text-xs font-bold text-[#60705d]">
+                            <p className="mt-1 text-xs font-bold text-[#5f6f85]">
                               {order._count.items} items
                             </p>
                           </td>
-                          <td className="px-4 py-4 text-sm font-bold text-[#60705d]">
+                          <td className="px-4 py-4 text-sm font-bold text-[#5f6f85]">
                             {formatDate(order.createdAt)}
                           </td>
                           <td className="px-4 py-4">
@@ -80,13 +80,13 @@ export default async function AccountOrdersPage() {
                           <td className="px-4 py-4">
                             <StatusPill status={order.paymentStatus} tone="payment" />
                           </td>
-                          <td className="px-4 py-4 text-sm font-black text-[#253326]">
+                          <td className="px-4 py-4 text-sm font-black text-[#1f2a44]">
                             {formatCurrency(order.total)}
                           </td>
                           <td className="px-4 py-4 text-right">
                             <Link
                               href={`/account/orders/${order.orderNumber}`}
-                              className="inline-flex h-10 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                              className="inline-flex h-10 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
                             >
                               View
                             </Link>
@@ -98,19 +98,19 @@ export default async function AccountOrdersPage() {
                 </div>
               </div>
             ) : (
-              <div className="rounded-lg border border-dashed border-[#b7c891] bg-white p-8 text-center shadow-sm">
-                <span className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-[#eef4df] text-[#344554]">
+              <div className="rounded-lg border border-dashed border-[#9fc5e8] bg-white p-8 text-center shadow-sm">
+                <span className="mx-auto grid h-14 w-14 place-items-center rounded-lg bg-[#eaf6ff] text-[#334155]">
                   <PackageCheck className="h-7 w-7" />
                 </span>
-                <h2 className="mt-5 text-2xl font-black tracking-normal text-[#253326]">
+                <h2 className="mt-5 text-2xl font-black tracking-normal text-[#1f2a44]">
                   No orders yet
                 </h2>
-                <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#60705d]">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#5f6f85]">
                   Orders will appear here after checkout.
                 </p>
                 <Link
                   href="/products"
-                  className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+                  className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
                 >
                   Browse products
                 </Link>

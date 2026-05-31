@@ -21,13 +21,13 @@ export function ResetPasswordForm({ initialEmail }: ResetPasswordFormProps) {
   return (
     <form action={formAction} className="space-y-5">
       <div>
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Reset password
         </p>
-        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#253326]">
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#1f2a44]">
           Set a new password
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Use the emailed reset code and choose a new password for your account.
         </p>
       </div>
@@ -74,14 +74,14 @@ export function ResetPasswordForm({ initialEmail }: ResetPasswordFormProps) {
         Reset password
       </AuthSubmitButton>
 
-      <div className="grid gap-3 text-center text-sm font-medium text-[#60705d]">
+      <div className="grid gap-3 text-center text-sm font-medium text-[#5f6f85]">
         <Link
           href="/forgot-password"
-          className="font-black text-[#5f7d33] hover:text-[#435d2d]"
+          className="font-black text-[#2f7fb3] hover:text-[#2f5f8f]"
         >
           Request a new code
         </Link>
-        <Link href="/login" className="font-black text-[#5f7d33] hover:text-[#435d2d]">
+        <Link href="/login" className="font-black text-[#2f7fb3] hover:text-[#2f5f8f]">
           Back to sign in
         </Link>
       </div>

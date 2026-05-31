@@ -55,16 +55,17 @@ export default async function Home() {
         <Hero
           title={preferences.heroTitle}
           subtitle={preferences.heroSubtitle}
+          imageUrl={preferences.heroImageUrl}
           ctaText={preferences.heroCtaText}
           ctaLink={preferences.heroCtaLink}
           announcementText={preferences.announcementText}
         />
         <TrustBar />
         {preferences.announcementEnabled && preferences.homepageBannerText ? (
-          <section className="border-y border-[#d7dfbd] bg-white py-4">
+          <section className="border-y border-[#cfe0f2] bg-white py-4">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div
-                className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-5 py-4 text-sm font-black text-[#253326]"
+                className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] px-5 py-4 text-sm font-black text-[#1f2a44]"
                 style={{ borderLeftColor: preferences.themeAccentColor }}
               >
                 {preferences.homepageBannerText}
@@ -76,23 +77,23 @@ export default async function Home() {
         <FeaturedProducts
           id="featured-products"
           eyebrow="Featured deals"
-          title="Premium picks with launch pricing"
-          description="Launch selections spanning mobile, portable work, gaming systems, creator cameras, and desk upgrades."
+          title={preferences.featuredProductsTitle}
+          description={preferences.featuredProductsDescription}
           products={featuredProducts}
         />
         <FeaturedProducts
           id="new-arrivals"
           eyebrow="New arrivals"
-          title="Fresh technology drops"
-          description="Recently added products from the active catalog, ready for the next phase of shopping flows."
+          title={preferences.newArrivalsTitle}
+          description={preferences.newArrivalsDescription}
           products={newArrivals}
           alternate
         />
         <FeaturedProducts
           id="best-sellers"
           eyebrow="Best sellers"
-          title="Customer-favorite setups"
-          description="Popular phones, laptops, creator gear, and accessories from the seeded catalog."
+          title={preferences.bestSellersTitle}
+          description={preferences.bestSellersDescription}
           products={bestSellers}
         />
       </main>

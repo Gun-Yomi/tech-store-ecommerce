@@ -75,23 +75,23 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Dashboard
         </p>
         <div className="mt-3 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
-            <h1 className="text-4xl font-black tracking-normal text-[#253326]">
+            <h1 className="text-4xl font-black tracking-normal text-[#1f2a44]">
               Admin command center
             </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#60705d]">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f6f85]">
               Manage catalog content, user access, homepage messaging, manual
               checkout orders, and fulfillment status from one secure area.
             </p>
           </div>
           <Link
             href="/admin/products/new"
-            className="inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Add product
           </Link>
@@ -105,15 +105,15 @@ export default async function AdminDashboardPage() {
           return (
             <article
               key={card.label}
-              className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm"
+              className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-[#eef4df] text-[#344554]">
+              <span className="grid h-10 w-10 place-items-center rounded-lg bg-[#eaf6ff] text-[#334155]">
                 <Icon className="h-5 w-5" />
               </span>
-              <p className="mt-5 text-3xl font-black text-[#253326]">
+              <p className="mt-5 text-3xl font-black text-[#1f2a44]">
                 {card.value}
               </p>
-              <p className="mt-1 text-sm font-bold text-[#60705d]">
+              <p className="mt-1 text-sm font-bold text-[#5f6f85]">
                 {card.label}
               </p>
             </article>
@@ -122,16 +122,16 @@ export default async function AdminDashboardPage() {
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[1fr_360px]">
-        <div className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
+        <div className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
           <div className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-[#eef4df] text-[#344554]">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-[#eaf6ff] text-[#334155]">
               <Settings className="h-5 w-5" />
             </span>
             <div>
-              <h2 className="text-xl font-black tracking-normal text-[#253326]">
+              <h2 className="text-xl font-black tracking-normal text-[#1f2a44]">
                 Quick links
               </h2>
-              <p className="text-sm font-semibold text-[#60705d]">
+              <p className="text-sm font-semibold text-[#5f6f85]">
                 Jump into the most common admin workflows.
               </p>
             </div>
@@ -141,7 +141,7 @@ export default async function AdminDashboardPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] px-4 py-3 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] px-4 py-3 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
               >
                 {link.label}
               </Link>
@@ -149,20 +149,20 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
 
-        <aside className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <aside className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
             Orders
           </p>
-          <h2 className="mt-3 text-2xl font-black tracking-normal text-[#253326]">
+          <h2 className="mt-3 text-2xl font-black tracking-normal text-[#1f2a44]">
             Manual checkout active
           </h2>
-          <p className="mt-3 text-sm leading-6 text-[#60705d]">
+          <p className="mt-3 text-sm leading-6 text-[#5f6f85]">
             {stats.unpaidOrders} orders are currently unpaid. Online payment
             gateway integration remains reserved for a later phase.
           </p>
           <Link
             href="/admin/orders"
-            className="mt-5 inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="mt-5 inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Manage orders
           </Link>

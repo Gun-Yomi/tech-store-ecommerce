@@ -25,17 +25,43 @@ const defaultPreferences = {
   heroTitle: "CircuitHaus",
   heroSubtitle:
     "Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.",
+  heroImageUrl:
+    "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1900&q=85",
   heroCtaText: "Shop featured",
   heroCtaLink: "/products?sort=featured",
   homepageBannerText:
     "Curated active catalog sections are controlled by product status and feature toggles.",
+  featuredProductsTitle: "Premium picks with launch pricing",
+  featuredProductsDescription:
+    "Launch selections spanning mobile, portable work, gaming systems, creator cameras, and desk upgrades.",
+  newArrivalsTitle: "Fresh technology drops",
+  newArrivalsDescription:
+    "Recently added products from the active catalog, ready for the next phase of shopping flows.",
+  bestSellersTitle: "Customer-favorite setups",
+  bestSellersDescription:
+    "Popular phones, laptops, creator gear, and accessories from the seeded catalog.",
+  footerDescription:
+    "A focused commerce foundation for premium devices, upgrade parts, creator gear, and support-ready technology products.",
   contactEmail: "",
   contactPhone: "",
   whatsappNumber: "",
   storeAddress: "",
-  themeAccentColor: "#6e8f3d",
+  themeAccentColor: "#4f9ed8",
   featuredCategorySlugs: "[]",
 };
+
+function normalizePreferenceColors<T extends { themeAccentColor: string }>(
+  preferences: T,
+) {
+  if (preferences.themeAccentColor.toLowerCase() !== "#6e8f3d") {
+    return preferences;
+  }
+
+  return {
+    ...preferences,
+    themeAccentColor: defaultPreferences.themeAccentColor,
+  };
+}
 
 export async function getSitePreferences() {
   const preferences = await prisma.sitePreference.findFirst({
@@ -45,15 +71,15 @@ export async function getSitePreferences() {
   });
 
   if (preferences) {
-    return preferences;
+    return normalizePreferenceColors(preferences);
   }
 
-  return {
+  return normalizePreferenceColors({
     id: "",
     ...defaultPreferences,
     createdAt: new Date(0),
     updatedAt: new Date(0),
-  };
+  });
 }
 
 export async function getAdminDashboardStats() {

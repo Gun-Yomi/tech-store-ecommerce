@@ -34,14 +34,14 @@ export default async function AdminOrdersPage({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Orders
         </p>
-        <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326]">
+        <h1 className="mt-3 text-4xl font-black tracking-normal text-[#1f2a44]">
           Order management
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#60705d]">
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f6f85]">
           Search manual checkout orders, review customer details, and update
           fulfillment and payment status.
         </p>
@@ -49,7 +49,7 @@ export default async function AdminOrdersPage({
 
       <AdminActionMessage success={params.success} error={params.error} />
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-4 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-4 shadow-sm">
         <form className="grid gap-3 lg:grid-cols-[1fr_220px_220px_auto]">
           <input
             name="search"
@@ -57,13 +57,13 @@ export default async function AdminOrdersPage({
             aria-label="Search orders"
             defaultValue={filters.search}
             placeholder="Search order number, customer, or email"
-            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+            className="h-11 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
           />
           <select
             name="status"
             aria-label="Order status"
             defaultValue={filters.status}
-            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+            className="h-11 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
           >
             <option value="ALL">All order statuses</option>
             {orderStatuses.map((status) => (
@@ -76,7 +76,7 @@ export default async function AdminOrdersPage({
             name="paymentStatus"
             aria-label="Payment status"
             defaultValue={filters.paymentStatus}
-            className="h-11 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+            className="h-11 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
           >
             <option value="ALL">All payment statuses</option>
             {paymentStatuses.map((status) => (
@@ -87,18 +87,18 @@ export default async function AdminOrdersPage({
           </select>
           <button
             type="submit"
-            className="h-11 rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="h-11 rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Apply
           </button>
         </form>
       </section>
 
-      <section className="overflow-hidden rounded-lg border border-[#d7dfbd] bg-white shadow-sm">
+      <section className="overflow-hidden rounded-lg border border-[#cfe0f2] bg-white shadow-sm">
         {orders.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-[#edf1df] text-left">
-              <thead className="bg-[#f7f9ef] text-xs font-black uppercase tracking-[0.14em] text-[#60705d]">
+            <table className="min-w-full divide-y divide-[#edf6ff] text-left">
+              <thead className="bg-[#f7fbff] text-xs font-black uppercase tracking-[0.14em] text-[#5f6f85]">
                 <tr>
                   <th className="px-4 py-3">Order</th>
                   <th className="px-4 py-3">Customer</th>
@@ -109,26 +109,26 @@ export default async function AdminOrdersPage({
                   <th className="px-4 py-3 text-right">View</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#edf1df]">
+              <tbody className="divide-y divide-[#edf6ff]">
                 {orders.map((order) => (
                   <tr key={order.id}>
                     <td className="px-4 py-4">
-                      <p className="font-black text-[#253326]">
+                      <p className="font-black text-[#1f2a44]">
                         {order.orderNumber}
                       </p>
-                      <p className="mt-1 text-xs font-bold text-[#60705d]">
+                      <p className="mt-1 text-xs font-bold text-[#5f6f85]">
                         {order._count.items} items
                       </p>
                     </td>
                     <td className="px-4 py-4">
-                      <p className="font-black text-[#253326]">
+                      <p className="font-black text-[#1f2a44]">
                         {order.customerName}
                       </p>
-                      <p className="mt-1 text-xs font-bold text-[#60705d]">
+                      <p className="mt-1 text-xs font-bold text-[#5f6f85]">
                         {order.customerEmail}
                       </p>
                     </td>
-                    <td className="px-4 py-4 text-sm font-bold text-[#60705d]">
+                    <td className="px-4 py-4 text-sm font-bold text-[#5f6f85]">
                       {formatDate(order.createdAt)}
                     </td>
                     <td className="px-4 py-4">
@@ -137,13 +137,13 @@ export default async function AdminOrdersPage({
                     <td className="px-4 py-4">
                       <StatusPill status={order.paymentStatus} tone="payment" />
                     </td>
-                    <td className="px-4 py-4 text-sm font-black text-[#253326]">
+                    <td className="px-4 py-4 text-sm font-black text-[#1f2a44]">
                       {formatCurrency(order.total)}
                     </td>
                     <td className="px-4 py-4 text-right">
                       <Link
                         href={`/admin/orders/${order.orderNumber}`}
-                        className="inline-flex h-10 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                        className="inline-flex h-10 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
                       >
                         View
                       </Link>
@@ -155,10 +155,10 @@ export default async function AdminOrdersPage({
           </div>
         ) : (
           <div className="p-10 text-center">
-            <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+            <h2 className="text-2xl font-black tracking-normal text-[#1f2a44]">
               No orders found
             </h2>
-            <p className="mt-3 text-sm font-semibold text-[#60705d]">
+            <p className="mt-3 text-sm font-semibold text-[#5f6f85]">
               Orders will appear here after customers submit checkout.
             </p>
           </div>

@@ -17,16 +17,16 @@ export default async function CategoriesPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee]">
-        <section className="border-b border-[#d7dfbd] bg-white py-14 sm:py-16">
+      <main className="bg-[#f5f9ff]">
+        <section className="border-b border-[#cfe0f2] bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
               Departments
             </p>
-            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326] sm:text-5xl">
+            <h1 className="mt-3 text-4xl font-black tracking-normal text-[#1f2a44] sm:text-5xl">
               Shop by category
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#60705d]">
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-[#5f6f85]">
               Featured departments appear first, followed by the rest of the
               active catalog.
             </p>

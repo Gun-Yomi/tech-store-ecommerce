@@ -25,22 +25,22 @@ const trustItems = [
 
 export function TrustBar() {
   return (
-    <section className="border-y border-[#d7dfbd] bg-white">
-      <div className="mx-auto grid max-w-7xl gap-px bg-[#d7dfbd] sm:grid-cols-2 lg:grid-cols-4">
+    <section className="border-y border-[#cfe0f2] bg-white">
+      <div className="mx-auto grid max-w-7xl gap-px bg-[#cfe0f2] sm:grid-cols-2 lg:grid-cols-4">
         {trustItems.map((item) => {
           const Icon = item.icon;
 
           return (
             <div key={item.label} className="bg-white px-4 py-6 sm:px-6 lg:px-8">
               <div className="flex gap-4">
-                <span className="grid h-12 w-12 flex-none place-items-center rounded-lg bg-[#eef4df] text-[#344554]">
+                <span className="grid h-12 w-12 flex-none place-items-center rounded-lg bg-[#eaf6ff] text-[#334155]">
                   <Icon className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 className="font-black tracking-normal text-[#253326]">
+                  <h3 className="font-black tracking-normal text-[#1f2a44]">
                     {item.label}
                   </h3>
-                  <p className="mt-1 text-sm leading-6 text-[#60705d]">
+                  <p className="mt-1 text-sm leading-6 text-[#5f6f85]">
                     {item.detail}
                   </p>
                 </div>

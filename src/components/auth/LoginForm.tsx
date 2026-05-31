@@ -18,13 +18,13 @@ export function LoginForm({ successMessage }: LoginFormProps) {
   return (
     <form action={formAction} className="space-y-5">
       <div>
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Welcome back
         </p>
-        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#253326]">
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-[#1f2a44]">
           Sign in to your account
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Access account details and prepare for future orders, wishlist, and saved items.
         </p>
       </div>
@@ -58,15 +58,15 @@ export function LoginForm({ successMessage }: LoginFormProps) {
       <div className="text-center">
         <Link
           href="/forgot-password"
-          className="text-sm font-black text-[#5f7d33] hover:text-[#435d2d]"
+          className="text-sm font-black text-[#2f7fb3] hover:text-[#2f5f8f]"
         >
           Forgot your password?
         </Link>
       </div>
 
-      <p className="text-center text-sm font-medium text-[#60705d]">
+      <p className="text-center text-sm font-medium text-[#5f6f85]">
         New here?{" "}
-        <Link href="/register" className="font-black text-[#5f7d33] hover:text-[#435d2d]">
+        <Link href="/register" className="font-black text-[#2f7fb3] hover:text-[#2f5f8f]">
           Create an account
         </Link>
       </p>

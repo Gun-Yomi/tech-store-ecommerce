@@ -14,12 +14,12 @@ export function ProductSpecs({ specifications }: ProductSpecsProps) {
       {entries.map(([label, value]) => (
         <div
           key={label}
-          className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] p-4"
+          className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] p-4"
         >
-          <dt className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+          <dt className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
             {label}
           </dt>
-          <dd className="mt-2 text-sm font-bold text-[#253326]">{value}</dd>
+          <dd className="mt-2 text-sm font-bold text-[#1f2a44]">{value}</dd>
         </div>
       ))}
     </dl>

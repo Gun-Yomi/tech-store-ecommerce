@@ -28,14 +28,14 @@ export default async function AdminUsersPage({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-6 shadow-sm">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#5f7d33]">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-6 shadow-sm">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-[#2f7fb3]">
           Users
         </p>
-        <h1 className="mt-3 text-4xl font-black tracking-normal text-[#253326]">
+        <h1 className="mt-3 text-4xl font-black tracking-normal text-[#1f2a44]">
           Basic user management
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#60705d]">
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f6f85]">
           Search customer accounts, view roles and status, disable users, and
           safely promote or demote roles without exposing password hashes.
         </p>
@@ -43,7 +43,7 @@ export default async function AdminUsersPage({
 
       <AdminActionMessage success={params.success} error={params.error} />
 
-      <section className="rounded-lg border border-[#d7dfbd] bg-white p-4 shadow-sm">
+      <section className="rounded-lg border border-[#cfe0f2] bg-white p-4 shadow-sm">
         <form className="flex flex-col gap-3 sm:flex-row">
           <input
             name="search"
@@ -51,22 +51,22 @@ export default async function AdminUsersPage({
             aria-label="Search users"
             defaultValue={search}
             placeholder="Search name or email"
-            className="h-11 flex-1 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none focus:border-[#6e8f3d]"
+            className="h-11 flex-1 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
           />
           <button
             type="submit"
-            className="h-11 rounded-lg bg-[#344554] px-5 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+            className="h-11 rounded-lg bg-[#334155] px-5 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
           >
             Search
           </button>
         </form>
       </section>
 
-      <section className="overflow-hidden rounded-lg border border-[#d7dfbd] bg-white shadow-sm">
+      <section className="overflow-hidden rounded-lg border border-[#cfe0f2] bg-white shadow-sm">
         {users.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-[#edf1df] text-left">
-              <thead className="bg-[#f7f9ef] text-xs font-black uppercase tracking-[0.14em] text-[#60705d]">
+            <table className="min-w-full divide-y divide-[#edf6ff] text-left">
+              <thead className="bg-[#f7fbff] text-xs font-black uppercase tracking-[0.14em] text-[#5f6f85]">
                 <tr>
                   <th className="px-4 py-3">User</th>
                   <th className="px-4 py-3">Role</th>
@@ -76,22 +76,22 @@ export default async function AdminUsersPage({
                   <th className="px-4 py-3 text-right">Update</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#edf1df]">
+              <tbody className="divide-y divide-[#edf6ff]">
                 {users.map((user) => {
                   const isSelf = user.id === admin.id;
 
                   return (
                     <tr key={user.id} className="align-top">
                       <td className="px-4 py-4">
-                        <p className="min-w-[220px] font-black text-[#253326]">
+                        <p className="min-w-[220px] font-black text-[#1f2a44]">
                           {user.name}
                           {isSelf ? (
-                            <span className="ml-2 rounded-full bg-[#eef4df] px-2 py-1 text-[11px] font-black text-[#3f5b25]">
+                            <span className="ml-2 rounded-full bg-[#eaf6ff] px-2 py-1 text-[11px] font-black text-[#245a8d]">
                               You
                             </span>
                           ) : null}
                         </p>
-                        <p className="mt-1 text-xs font-bold text-[#60705d]">
+                        <p className="mt-1 text-xs font-bold text-[#5f6f85]">
                           {user.email}
                         </p>
                       </td>
@@ -106,7 +106,7 @@ export default async function AdminUsersPage({
                             name="role"
                             aria-label={`Role for ${user.email}`}
                             defaultValue={user.role}
-                            className="h-10 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-bold text-[#253326] outline-none focus:border-[#6e8f3d]"
+                            className="h-10 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-bold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
                           >
                             <option value="CUSTOMER">Customer</option>
                             <option value="ADMIN">Admin</option>
@@ -119,23 +119,23 @@ export default async function AdminUsersPage({
                           form={`user-admin-form-${user.id}`}
                           aria-label={`Status for ${user.email}`}
                           defaultValue={user.status}
-                          className="h-10 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-bold text-[#253326] outline-none focus:border-[#6e8f3d]"
+                          className="h-10 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-bold text-[#1f2a44] outline-none focus:border-[#4f9ed8]"
                         >
                           <option value="ACTIVE">Active</option>
                           <option value="DISABLED">Disabled</option>
                         </select>
                       </td>
-                      <td className="px-4 py-4 text-sm font-black text-[#253326]">
+                      <td className="px-4 py-4 text-sm font-black text-[#1f2a44]">
                         {user.emailVerified ? "Yes" : "No"}
                       </td>
-                      <td className="px-4 py-4 text-sm font-bold text-[#60705d]">
+                      <td className="px-4 py-4 text-sm font-bold text-[#5f6f85]">
                         {formatDate(user.createdAt)}
                       </td>
                       <td className="px-4 py-4 text-right">
                         <button
                           type="submit"
                           form={`user-admin-form-${user.id}`}
-                          className="inline-flex h-10 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+                          className="inline-flex h-10 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
                         >
                           Save
                         </button>
@@ -148,10 +148,10 @@ export default async function AdminUsersPage({
           </div>
         ) : (
           <div className="p-10 text-center">
-            <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+            <h2 className="text-2xl font-black tracking-normal text-[#1f2a44]">
               No users found
             </h2>
-            <p className="mt-3 text-sm font-semibold text-[#60705d]">
+            <p className="mt-3 text-sm font-semibold text-[#5f6f85]">
               Adjust the search term or create an account from the storefront.
             </p>
           </div>

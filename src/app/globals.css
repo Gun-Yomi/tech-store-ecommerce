@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7ee;
-  --foreground: #253326;
-  --brand-ink: #253326;
-  --brand-leaf: #6e8f3d;
-  --brand-moss: #435d2d;
-  --brand-sage: #d7dfbd;
-  --brand-lime: #d8e978;
-  --brand-teal: #18867c;
-  --brand-icon: #344554;
+  --background: #f5f9ff;
+  --foreground: #1f2a44;
+  --brand-ink: #1f2a44;
+  --brand-leaf: #4f9ed8;
+  --brand-moss: #2f5f8f;
+  --brand-sage: #cfe0f2;
+  --brand-lime: #c7e8ff;
+  --brand-teal: #2aa6d6;
+  --brand-icon: #334155;
 }
 
 @theme inline {

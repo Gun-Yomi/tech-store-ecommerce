@@ -52,22 +52,22 @@ enum PaymentStatus {
 }
 
 model User {
-  id            String     @id @default(cuid())
+  id            String         @id @default(cuid())
   name          String
-  email         String     @unique
+  email         String         @unique
   passwordHash  String
-  role          UserRole   @default(CUSTOMER)
+  role          UserRole       @default(CUSTOMER)
   phone         String?
   avatarUrl     String?
   emailVerified DateTime?
-  status        UserStatus @default(ACTIVE)
+  status        UserStatus     @default(ACTIVE)
   sessions      Session[]
   cart          Cart?
   orders        Order[]
   wishlistItems WishlistItem[]
   savedItems    SavedItem[]
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
 }
 
 model Session {
@@ -227,25 +227,33 @@ model SavedItem {
 }
 
 model SitePreference {
-  id                     String   @id @default(cuid())
-  siteName               String   @default("CircuitHaus")
-  storeTagline           String   @default("Premium technology market")
-  logoUrl                String   @default("")
-  announcementText       String   @default("Premium launch deals are live")
-  announcementEnabled    Boolean  @default(true)
-  heroTitle              String   @default("CircuitHaus")
-  heroSubtitle           String   @default("Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.")
-  heroCtaText            String   @default("Shop featured")
-  heroCtaLink            String   @default("/products?sort=featured")
-  homepageBannerText     String   @default("Curated active catalog sections are controlled by product status and feature toggles.")
-  contactEmail           String   @default("")
-  contactPhone           String   @default("")
-  whatsappNumber         String   @default("")
-  storeAddress           String   @default("")
-  themeAccentColor       String   @default("#6e8f3d")
-  featuredCategorySlugs  String   @default("[]")
-  createdAt              DateTime @default(now())
-  updatedAt              DateTime @updatedAt
+  id                          String   @id @default(cuid())
+  siteName                    String   @default("CircuitHaus")
+  storeTagline                String   @default("Premium technology market")
+  logoUrl                     String   @default("")
+  announcementText            String   @default("Premium launch deals are live")
+  announcementEnabled         Boolean  @default(true)
+  heroTitle                   String   @default("CircuitHaus")
+  heroSubtitle                String   @default("Premium phones, creator laptops, gaming systems, cameras, and workstation accessories selected for speed, reliability, and long-term value.")
+  heroImageUrl                String   @default("https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1900&q=85")
+  heroCtaText                 String   @default("Shop featured")
+  heroCtaLink                 String   @default("/products?sort=featured")
+  homepageBannerText          String   @default("Curated active catalog sections are controlled by product status and feature toggles.")
+  featuredProductsTitle       String   @default("Premium picks with launch pricing")
+  featuredProductsDescription String   @default("Launch selections spanning mobile, portable work, gaming systems, creator cameras, and desk upgrades.")
+  newArrivalsTitle            String   @default("Fresh technology drops")
+  newArrivalsDescription      String   @default("Recently added products from the active catalog, ready for the next phase of shopping flows.")
+  bestSellersTitle            String   @default("Customer-favorite setups")
+  bestSellersDescription      String   @default("Popular phones, laptops, creator gear, and accessories from the seeded catalog.")
+  footerDescription           String   @default("A focused commerce foundation for premium devices, upgrade parts, creator gear, and support-ready technology products.")
+  contactEmail                String   @default("")
+  contactPhone                String   @default("")
+  whatsappNumber              String   @default("")
+  storeAddress                String   @default("")
+  themeAccentColor            String   @default("#4f9ed8")
+  featuredCategorySlugs       String   @default("[]")
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
 }
 
 model Order {
@@ -280,18 +288,18 @@ model Order {
 }
 
 model OrderItem {
-  id                 String   @id @default(cuid())
-  orderId            String
-  productId          String
+  id                  String   @id @default(cuid())
+  orderId             String
+  productId           String
   productNameSnapshot String
-  productSkuSnapshot String
-  priceSnapshot      Int
-  salePriceSnapshot  Int?
-  quantity           Int
-  lineTotal          Int
-  order              Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  product            Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
-  createdAt          DateTime @default(now())
+  productSkuSnapshot  String
+  priceSnapshot       Int
+  salePriceSnapshot   Int?
+  quantity            Int
+  lineTotal           Int
+  order               Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product             Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  createdAt           DateTime @default(now())
 
   @@index([orderId])
   @@index([productId])

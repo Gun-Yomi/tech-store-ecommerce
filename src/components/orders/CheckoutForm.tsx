@@ -47,7 +47,7 @@ function TextInput({
 
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+      <label htmlFor={name} className="block text-sm font-black text-[#1f2a44]">
         {label}
       </label>
       <input
@@ -59,7 +59,7 @@ function TextInput({
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
-        className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
+        className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#8795a8] focus:border-[#4f9ed8]"
       />
       {error ? (
         <p id={errorId} className="mt-2 text-xs font-bold text-[#9f2f28]">
@@ -87,8 +87,8 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
         </div>
       ) : null}
 
-      <div className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
-        <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+      <div className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
+        <h2 className="text-2xl font-black tracking-normal text-[#1f2a44]">
           Customer details
         </h2>
         <div className="mt-5 grid gap-5 lg:grid-cols-2">
@@ -118,7 +118,7 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
           <div>
             <label
               htmlFor="deliveryMethod"
-              className="block text-sm font-black text-[#253326]"
+              className="block text-sm font-black text-[#1f2a44]"
             >
               Delivery option
             </label>
@@ -132,7 +132,7 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
                   ? "deliveryMethod-error"
                   : undefined
               }
-              className="mt-2 h-11 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-semibold text-[#253326] outline-none transition focus:border-[#6e8f3d]"
+              className="mt-2 h-11 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-semibold text-[#1f2a44] outline-none transition focus:border-[#4f9ed8]"
             >
               <option value="DELIVERY">Delivery</option>
               <option value="PICKUP">Pickup / manual confirmation</option>
@@ -149,11 +149,11 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
         </div>
       </div>
 
-      <div className="rounded-lg border border-[#d7dfbd] bg-white p-5 shadow-sm">
-        <h2 className="text-2xl font-black tracking-normal text-[#253326]">
+      <div className="rounded-lg border border-[#cfe0f2] bg-white p-5 shadow-sm">
+        <h2 className="text-2xl font-black tracking-normal text-[#1f2a44]">
           Delivery address
         </h2>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Address is required for delivery. Pickup orders can leave address
           fields blank.
         </p>
@@ -185,7 +185,7 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
             />
           </div>
           <div>
-            <label htmlFor="notes" className="block text-sm font-black text-[#253326]">
+            <label htmlFor="notes" className="block text-sm font-black text-[#1f2a44]">
               Order notes
             </label>
             <textarea
@@ -195,7 +195,7 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
               rows={4}
               aria-invalid={Boolean(fieldError(state, "notes"))}
               aria-describedby={fieldError(state, "notes") ? "notes-error" : undefined}
-              className="mt-2 w-full rounded-lg border border-[#d7dfbd] bg-white px-3 py-3 text-sm font-semibold text-[#253326] outline-none transition placeholder:text-[#8a957e] focus:border-[#6e8f3d]"
+              className="mt-2 w-full rounded-lg border border-[#cfe0f2] bg-white px-3 py-3 text-sm font-semibold text-[#1f2a44] outline-none transition placeholder:text-[#8795a8] focus:border-[#4f9ed8]"
               placeholder="Delivery notes, pickup preference, or anything the team should know."
             />
             {fieldError(state, "notes") ? (
@@ -207,11 +207,11 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
         </div>
       </div>
 
-      <div className="rounded-lg border border-[#d7dfbd] bg-[#f7f9ef] p-5">
-        <p className="text-sm font-black uppercase tracking-[0.16em] text-[#5f7d33]">
+      <div className="rounded-lg border border-[#cfe0f2] bg-[#f7fbff] p-5">
+        <p className="text-sm font-black uppercase tracking-[0.16em] text-[#2f7fb3]">
           Payment placeholder
         </p>
-        <p className="mt-2 text-sm leading-6 text-[#60705d]">
+        <p className="mt-2 text-sm leading-6 text-[#5f6f85]">
           Online payment is coming soon. Your order will be submitted for manual
           confirmation, and payment status will start as unpaid.
         </p>
@@ -220,7 +220,7 @@ export function CheckoutForm({ user, disabled = false }: CheckoutFormProps) {
       <SubmitButton
         pendingLabel="Submitting order..."
         disabled={disabled}
-        className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#344554] px-6 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+        className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-[#334155] px-6 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
       >
         Submit order for confirmation
       </SubmitButton>

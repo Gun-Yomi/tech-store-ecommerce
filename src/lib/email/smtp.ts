@@ -67,7 +67,7 @@ async function sendCodeEmail({
         "If you did not request this code, you can ignore this email.",
       ].join("\n\n"),
       html: `
-        <div style="font-family: Arial, sans-serif; color: #253326; line-height: 1.5;">
+        <div style="font-family: Arial, sans-serif; color: #1f2a44; line-height: 1.5;">
           <p>${intro}:</p>
           <p style="font-size: 28px; font-weight: 800; letter-spacing: 6px;">${code}</p>
           <p>This code expires at ${expiresAt.toLocaleTimeString()}.</p>

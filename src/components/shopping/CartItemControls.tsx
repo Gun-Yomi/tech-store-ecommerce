@@ -48,7 +48,7 @@ export function CartItemControls({
       <form action={updateAction} className="flex flex-wrap items-end gap-2">
         <input type="hidden" name="cartItemId" value={cartItemId} />
         <label className="block">
-          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5f7d33]">
+          <span className="text-xs font-black uppercase tracking-[0.14em] text-[#2f7fb3]">
             Quantity
           </span>
           <input
@@ -60,12 +60,12 @@ export function CartItemControls({
             onChange={(event) =>
               setQuantity(Math.max(1, Number(event.target.value) || 1))
             }
-            className="mt-2 h-11 w-24 rounded-lg border border-[#d7dfbd] bg-white px-3 text-sm font-black text-[#253326] outline-none transition hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+            className="mt-2 h-11 w-24 rounded-lg border border-[#cfe0f2] bg-white px-3 text-sm font-black text-[#1f2a44] outline-none transition hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
           />
         </label>
         <SubmitButton
           pendingLabel="Updating..."
-          className="inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+          className="inline-flex h-11 items-center justify-center rounded-lg bg-[#334155] px-4 text-sm font-black text-white transition hover:bg-[#2f7fb3]"
         >
           Update
         </SubmitButton>
@@ -76,7 +76,7 @@ export function CartItemControls({
           <input type="hidden" name="cartItemId" value={cartItemId} />
           <SubmitButton
             pendingLabel="Moving..."
-            className="inline-flex h-10 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
+            className="inline-flex h-10 items-center justify-center rounded-lg border border-[#9fc5e8] bg-white px-4 text-sm font-black text-[#334155] transition hover:border-[#4f9ed8] hover:bg-[#eaf6ff]"
           >
             Save for later
           </SubmitButton>

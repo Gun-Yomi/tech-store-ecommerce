@@ -25,7 +25,7 @@ export function AuthTextField({
 
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-black text-[#253326]">
+      <label htmlFor={name} className="block text-sm font-black text-[#1f2a44]">
         {label}
       </label>
       <input
@@ -39,7 +39,7 @@ export function AuthTextField({
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
-        className="mt-2 h-12 w-full rounded-lg border border-[#d7dfbd] bg-white px-4 text-sm font-medium text-[#253326] outline-none transition placeholder:text-[#75806f] hover:border-[#b7c891] focus:border-[#6e8f3d] focus:ring-4 focus:ring-[#e5efcd]"
+        className="mt-2 h-12 w-full rounded-lg border border-[#cfe0f2] bg-white px-4 text-sm font-medium text-[#1f2a44] outline-none transition placeholder:text-[#758398] hover:border-[#9fc5e8] focus:border-[#4f9ed8] focus:ring-4 focus:ring-[#dff0ff]"
       />
       {error ? (
         <p id={errorId} className="mt-2 text-sm font-semibold text-[#9f2f28]">

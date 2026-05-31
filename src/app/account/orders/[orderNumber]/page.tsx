@@ -28,7 +28,7 @@ export default async function AccountOrderDetailPage({
   return (
     <>
       <Header />
-      <main className="bg-[#f5f7ee] py-10 sm:py-12">
+      <main className="bg-[#f5f9ff] py-10 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <OrderDetailView order={order} />
         </div>
