@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  DISABLED
+}
+
+enum VerificationCodePurpose {
+  REGISTER
+}
+
+model User {
+  id            String     @id @default(cuid())
+  name          String
+  email         String     @unique
+  passwordHash  String
+  role          UserRole   @default(CUSTOMER)
+  phone         String?
+  avatarUrl     String?
+  emailVerified DateTime?
+  status        UserStatus @default(ACTIVE)
+  sessions      Session[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}
+
+model EmailVerificationCode {
+  id         String                  @id @default(cuid())
+  email      String
+  codeHash   String
+  purpose    VerificationCodePurpose @default(REGISTER)
+  expiresAt  DateTime
+  consumedAt DateTime?
+  attempts   Int                     @default(0)
+  createdAt  DateTime                @default(now())
+
+  @@index([email, purpose, expiresAt])
+}

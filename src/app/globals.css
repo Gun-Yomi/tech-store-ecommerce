@@ -1,23 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --brand-ink: #07111f;
-  --brand-cyan: #67e8f9;
-  --brand-blue: #2563eb;
-  --brand-emerald: #34d399;
-  --brand-violet: #8b5cf6;
+  --background: #f5f7ee;
+  --foreground: #253326;
+  --brand-ink: #253326;
+  --brand-leaf: #6e8f3d;
+  --brand-moss: #435d2d;
+  --brand-sage: #d7dfbd;
+  --brand-lime: #d8e978;
+  --brand-teal: #18867c;
+  --brand-icon: #344554;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-ink: var(--brand-ink);
-  --color-brand-cyan: var(--brand-cyan);
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-emerald: var(--brand-emerald);
-  --color-brand-violet: var(--brand-violet);
+  --color-brand-leaf: var(--brand-leaf);
+  --color-brand-moss: var(--brand-moss);
+  --color-brand-sage: var(--brand-sage);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-icon: var(--brand-icon);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -29,8 +33,12 @@ body {
 }
 
 ::selection {
-  background: var(--brand-cyan);
+  background: var(--brand-lime);
   color: var(--brand-ink);
+}
+
+.lucide {
+  stroke-width: 2.35;
 }
 
 button,
