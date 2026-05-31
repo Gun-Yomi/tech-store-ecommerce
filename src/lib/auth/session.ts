@@ -79,6 +79,32 @@ export async function getCurrentUser(): Promise<SafeUser | null> {
   return toSafeUser(session.user);
 }
 
+export async function deleteOtherUserSessions(userId: string) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+
+  await prisma.session.deleteMany({
+    where: {
+      userId,
+      ...(token
+        ? {
+            tokenHash: {
+              not: hashSessionToken(token),
+            },
+          }
+        : {}),
+    },
+  });
+}
+
+export async function deleteAllUserSessions(userId: string) {
+  await prisma.session.deleteMany({
+    where: {
+      userId,
+    },
+  });
+}
+
 export async function deleteCurrentSession() {
   const cookieStore = await cookies();
   const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;

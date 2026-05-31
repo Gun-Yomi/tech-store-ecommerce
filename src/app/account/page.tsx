@@ -1,7 +1,9 @@
 import { Heart, Package, Settings, ShieldCheck, UserRound } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ChangePasswordForm } from "@/components/auth/ChangePasswordForm";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { ProfileForm } from "@/components/auth/ProfileForm";
 import { requireUser } from "@/lib/auth/guards";
 
 const accountCards = [
@@ -12,12 +14,12 @@ const accountCards = [
   },
   {
     title: "Wishlist",
-    detail: "Wishlist storage arrives with cart and save-later work in Phase 4.",
+    detail: "Wishlist storage is active. Manage favorites from the wishlist page.",
     icon: Heart,
   },
   {
     title: "Saved Items",
-    detail: "Saved products are reserved for the next shopping state phase.",
+    detail: "Saved-for-later items are available below your cart.",
     icon: ShieldCheck,
   },
   {
@@ -81,6 +83,11 @@ export default async function AccountPage() {
                 </article>
               );
             })}
+          </section>
+
+          <section className="mt-8 grid gap-6 lg:grid-cols-2">
+            <ProfileForm user={user} />
+            <ChangePasswordForm />
           </section>
         </div>
       </main>

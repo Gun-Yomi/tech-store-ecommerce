@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingBag, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import type { CatalogProduct } from "@/lib/catalog";
 import { calculateDiscountPercent, formatCurrency } from "@/lib/format";
+import { ProductQuickActions } from "@/components/shopping/ProductQuickActions";
 
 type ProductCardProps = {
   product: CatalogProduct;
@@ -79,53 +80,42 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
 
         <div className="mt-5 border-t border-[#edf1df] pt-4">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="text-2xl font-black tracking-normal text-[#253326]">
-                  {formatCurrency(activePrice)}
+          <div>
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="text-2xl font-black tracking-normal text-[#253326]">
+                {formatCurrency(activePrice)}
+              </span>
+              {product.salePrice ? (
+                <span className="text-sm font-bold text-[#89937c] line-through">
+                  {formatCurrency(product.price)}
                 </span>
-                {product.salePrice ? (
-                  <span className="text-sm font-bold text-[#89937c] line-through">
-                    {formatCurrency(product.price)}
-                  </span>
-                ) : null}
-              </div>
-              <p
-                className={`mt-1 text-xs font-bold ${
-                  product.stockQuantity > 0 ? "text-[#5f7d33]" : "text-[#9f2f28]"
-                }`}
-              >
-                {product.stockQuantity > 0
-                  ? `${product.stockQuantity} in stock`
-                  : "Out of stock"}
-              </p>
+              ) : null}
             </div>
-            <button
-              type="button"
-              className="grid h-11 w-11 place-items-center rounded-lg border border-[#d7dfbd] bg-white text-[#344554] transition hover:border-[#8ea95c] hover:bg-[#edf4de]"
-              aria-label={`Wishlist ${product.name} placeholder`}
-              title="Wishlist - Coming in Phase 4"
+            <p
+              className={`mt-1 text-xs font-bold ${
+                product.stockQuantity > 0 ? "text-[#5f7d33]" : "text-[#9f2f28]"
+              }`}
             >
-              <Heart className="h-4 w-4" />
-            </button>
+              {product.stockQuantity > 0
+                ? `${product.stockQuantity} in stock`
+                : "Out of stock"}
+            </p>
           </div>
 
-          <div className="mt-4 grid grid-cols-[1fr_auto] gap-2">
+          <div className="mt-4">
             <Link
               href={`/products/${product.slug}`}
-              className="inline-flex h-11 items-center justify-center rounded-lg bg-[#344554] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
+              className="inline-flex h-11 w-full items-center justify-center rounded-lg bg-[#344554] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
             >
               View details
             </Link>
-            <button
-              type="button"
-              className="grid h-11 w-11 place-items-center rounded-lg bg-[#6e8f3d] text-white transition hover:bg-[#5f7d33]"
-              aria-label={`Add ${product.name} to cart placeholder`}
-              title="Add to Cart - Coming in Phase 4"
-            >
-              <ShoppingBag className="h-4 w-4" />
-            </button>
+          </div>
+          <div className="mt-3">
+            <ProductQuickActions
+              productId={product.id}
+              productName={product.name}
+              outOfStock={product.stockQuantity < 1}
+            />
           </div>
         </div>
       </div>

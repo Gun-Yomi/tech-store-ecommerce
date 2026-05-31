@@ -5,7 +5,12 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getCurrentUser } from "@/lib/auth/session";
 
-export default async function LoginPage() {
+type LoginPageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const params = await searchParams;
   const user = await getCurrentUser();
 
   if (user) {
@@ -21,7 +26,13 @@ export default async function LoginPage() {
           title="Premium access for your tech account"
           subtitle="Sign in to manage your profile now, with orders, saved items, and shopping history planned for the next phases."
         >
-          <LoginForm />
+          <LoginForm
+            successMessage={
+              params.reset === "success"
+                ? "Password reset. Sign in with your new password."
+                : undefined
+            }
+          />
         </AuthShell>
       </main>
       <Footer />

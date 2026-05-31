@@ -2,6 +2,7 @@ import { Heart, Menu, Search, ShoppingCart, UserRound } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { getCurrentUser } from "@/lib/auth/session";
+import { getShoppingCounts } from "@/lib/shopping";
 
 const navItems = [
   { label: "Products", href: "/products" },
@@ -12,6 +13,7 @@ const navItems = [
 
 export async function Header() {
   const user = await getCurrentUser();
+  const counts = await getShoppingCounts(user?.id);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#d7dfbd] bg-[#f7f9ef]/95 text-[#344554] shadow-[0_14px_40px_rgba(67,93,45,0.12)] backdrop-blur">
@@ -60,24 +62,28 @@ export async function Header() {
         </form>
 
         <div className="flex items-center gap-2">
-          {/* TODO(Phase 4): Wire wishlist and cart buttons to persistent user state. */}
-          <button
-            type="button"
-            className="hidden h-10 w-10 place-items-center rounded-lg border border-[#d7dfbd] bg-white/70 text-[#344554] transition hover:border-[#8ea95c] hover:bg-[#edf4de] md:grid"
-            aria-label="Wishlist placeholder"
+          <Link
+            href="/wishlist"
+            className="relative hidden h-10 w-10 place-items-center rounded-lg border border-[#d7dfbd] bg-white/70 text-[#344554] transition hover:border-[#8ea95c] hover:bg-[#edf4de] md:grid"
+            aria-label="Wishlist"
           >
             <Heart className="h-4 w-4" />
-          </button>
-          <button
-            type="button"
+            {counts.wishlistCount > 0 ? (
+              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#d8e978] px-1 text-[11px] font-black text-[#253326]">
+                {counts.wishlistCount}
+              </span>
+            ) : null}
+          </Link>
+          <Link
+            href="/cart"
             className="relative grid h-10 w-10 place-items-center rounded-lg border border-[#d7dfbd] bg-white/70 text-[#344554] transition hover:border-[#8ea95c] hover:bg-[#edf4de]"
-            aria-label="Cart placeholder"
+            aria-label="Cart"
           >
             <ShoppingCart className="h-4 w-4" />
             <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-[#d8e978] px-1 text-[11px] font-black text-[#253326]">
-              0
+              {counts.cartCount}
             </span>
-          </button>
+          </Link>
 
           {user ? (
             <div className="hidden items-center gap-2 sm:flex">

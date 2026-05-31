@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Heart, PackageCheck, ShoppingBag } from "lucide-react";
+import { PackageCheck } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductGallery } from "@/components/catalog/ProductGallery";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { ProductSpecs } from "@/components/catalog/ProductSpecs";
+import { ProductDetailActions } from "@/components/shopping/ProductDetailActions";
 import {
   getProductBySlug,
   getRecommendedProducts,
@@ -144,28 +145,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     : "Out of stock"}
                 </p>
 
-                <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                  <button
-                    type="button"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#6e8f3d] px-4 text-sm font-black text-white transition hover:bg-[#5f7d33]"
-                  >
-                    <ShoppingBag className="h-4 w-4" />
-                    Add to Cart - Coming in Phase 4
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
-                  >
-                    <Heart className="h-4 w-4" />
-                    Wishlist - Coming in Phase 4
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex h-12 items-center justify-center rounded-lg border border-[#b7c891] bg-white px-4 text-sm font-black text-[#344554] transition hover:border-[#6e8f3d] hover:bg-[#eef4df]"
-                  >
-                    Save for later - Coming in Phase 4
-                  </button>
-                </div>
+                <ProductDetailActions
+                  productId={product.id}
+                  productName={product.name}
+                  stockQuantity={product.stockQuantity}
+                />
               </div>
 
               <div className="mt-7 flex flex-wrap gap-2">

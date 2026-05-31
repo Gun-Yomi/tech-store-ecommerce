@@ -8,7 +8,11 @@ import { AuthFormMessage } from "./AuthFormMessage";
 import { AuthSubmitButton } from "./AuthSubmitButton";
 import { AuthTextField } from "./AuthTextField";
 
-export function LoginForm() {
+type LoginFormProps = {
+  successMessage?: string;
+};
+
+export function LoginForm({ successMessage }: LoginFormProps) {
   const [state, formAction] = useActionState(loginAction, initialAuthActionState);
 
   return (
@@ -26,6 +30,10 @@ export function LoginForm() {
       </div>
 
       <AuthFormMessage message={state.formError} />
+      <AuthFormMessage
+        message={state.successMessage ?? successMessage}
+        variant="success"
+      />
 
       <AuthTextField
         label="Email"
@@ -46,6 +54,15 @@ export function LoginForm() {
       />
 
       <AuthSubmitButton pendingLabel="Signing in...">Sign in</AuthSubmitButton>
+
+      <div className="text-center">
+        <Link
+          href="/forgot-password"
+          className="text-sm font-black text-[#5f7d33] hover:text-[#435d2d]"
+        >
+          Forgot your password?
+        </Link>
+      </div>
 
       <p className="text-center text-sm font-medium text-[#60705d]">
         New to CircuitHaus?{" "}

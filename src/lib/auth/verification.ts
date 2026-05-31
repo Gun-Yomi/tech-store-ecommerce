@@ -1,9 +1,9 @@
 import "server-only";
 
 import { createHash, randomInt, timingSafeEqual } from "crypto";
+import type { VerificationCodePurpose } from "@prisma/client";
 import { prisma } from "@/lib/db";
 
-const VERIFICATION_CODE_PURPOSE = "REGISTER";
 const DEFAULT_CODE_TTL_MINUTES = 10;
 const MAX_CODE_ATTEMPTS = 5;
 
@@ -36,7 +36,10 @@ function compareHashes(storedHash: string, submittedHash: string) {
   );
 }
 
-export async function createRegistrationVerificationCode(email: string) {
+async function createVerificationCode(
+  email: string,
+  purpose: VerificationCodePurpose,
+) {
   const pepper = getCodePepper();
 
   if (!pepper) {
@@ -55,7 +58,7 @@ export async function createRegistrationVerificationCode(email: string) {
   await prisma.emailVerificationCode.updateMany({
     where: {
       email: normalizedEmail,
-      purpose: VERIFICATION_CODE_PURPOSE,
+      purpose,
       consumedAt: null,
     },
     data: {
@@ -67,7 +70,7 @@ export async function createRegistrationVerificationCode(email: string) {
     data: {
       email: normalizedEmail,
       codeHash: hashVerificationCode(normalizedEmail, code, pepper),
-      purpose: VERIFICATION_CODE_PURPOSE,
+      purpose,
       expiresAt,
     },
     select: {
@@ -83,7 +86,11 @@ export async function createRegistrationVerificationCode(email: string) {
   };
 }
 
-export async function verifyRegistrationCode(email: string, code: string) {
+async function verifyCode(
+  email: string,
+  code: string,
+  purpose: VerificationCodePurpose,
+) {
   const pepper = getCodePepper();
 
   if (!pepper) {
@@ -97,7 +104,7 @@ export async function verifyRegistrationCode(email: string, code: string) {
   const record = await prisma.emailVerificationCode.findFirst({
     where: {
       email: normalizedEmail,
-      purpose: VERIFICATION_CODE_PURPOSE,
+      purpose,
       consumedAt: null,
       expiresAt: {
         gt: new Date(),
@@ -151,4 +158,20 @@ export async function verifyRegistrationCode(email: string, code: string) {
     ok: true as const,
     verificationCodeId: record.id,
   };
+}
+
+export async function createRegistrationVerificationCode(email: string) {
+  return createVerificationCode(email, "REGISTER");
+}
+
+export async function createPasswordResetVerificationCode(email: string) {
+  return createVerificationCode(email, "RESET_PASSWORD");
+}
+
+export async function verifyRegistrationCode(email: string, code: string) {
+  return verifyCode(email, code, "REGISTER");
+}
+
+export async function verifyPasswordResetCode(email: string, code: string) {
+  return verifyCode(email, code, "RESET_PASSWORD");
 }

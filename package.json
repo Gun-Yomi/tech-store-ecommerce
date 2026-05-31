@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "db:generate": "prisma generate",
-    "db:migrate": "prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0001_phase3_auth/migration.sql && prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0002_registration_email_codes/migration.sql && prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0003_catalog/migration.sql",
+    "db:migrate": "prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0001_phase3_auth/migration.sql && prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0002_registration_email_codes/migration.sql && prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0003_catalog/migration.sql && prisma db execute --schema prisma/schema.prisma --file prisma/migrations/0004_cart_wishlist_saved/migration.sql",
     "db:setup": "npm run db:migrate && prisma db seed",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio"

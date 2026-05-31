@@ -8,6 +8,8 @@ type RegistrationCodeEmailInput = {
   expiresAt: Date;
 };
 
+type PasswordResetCodeEmailInput = RegistrationCodeEmailInput;
+
 function getSmtpConfig() {
   const host = process.env.SMTP_HOST?.trim();
   const from = process.env.SMTP_FROM?.trim();
@@ -28,11 +30,16 @@ function getSmtpConfig() {
   };
 }
 
-export async function sendRegistrationCodeEmail({
+async function sendCodeEmail({
   to,
   code,
   expiresAt,
-}: RegistrationCodeEmailInput) {
+  subject,
+  intro,
+}: RegistrationCodeEmailInput & {
+  subject: string;
+  intro: string;
+}) {
   const config = getSmtpConfig();
 
   if (!config) {
@@ -53,15 +60,15 @@ export async function sendRegistrationCodeEmail({
     await transporter.sendMail({
       from: config.from,
       to,
-      subject: "Your CircuitHaus verification code",
+      subject,
       text: [
-        `Your CircuitHaus verification code is ${code}.`,
+        `${intro} ${code}.`,
         `It expires at ${expiresAt.toLocaleTimeString()}.`,
         "If you did not request this code, you can ignore this email.",
       ].join("\n\n"),
       html: `
         <div style="font-family: Arial, sans-serif; color: #253326; line-height: 1.5;">
-          <p>Your CircuitHaus verification code is:</p>
+          <p>${intro}:</p>
           <p style="font-size: 28px; font-weight: 800; letter-spacing: 6px;">${code}</p>
           <p>This code expires at ${expiresAt.toLocaleTimeString()}.</p>
           <p>If you did not request this code, you can ignore this email.</p>
@@ -78,4 +85,32 @@ export async function sendRegistrationCodeEmail({
       reason: "send-failed" as const,
     };
   }
+}
+
+export async function sendRegistrationCodeEmail({
+  to,
+  code,
+  expiresAt,
+}: RegistrationCodeEmailInput) {
+  return sendCodeEmail({
+    to,
+    code,
+    expiresAt,
+    subject: "Your CircuitHaus verification code",
+    intro: "Your CircuitHaus verification code is",
+  });
+}
+
+export async function sendPasswordResetCodeEmail({
+  to,
+  code,
+  expiresAt,
+}: PasswordResetCodeEmailInput) {
+  return sendCodeEmail({
+    to,
+    code,
+    expiresAt,
+    subject: "Reset your CircuitHaus password",
+    intro: "Your CircuitHaus password reset code is",
+  });
 }
